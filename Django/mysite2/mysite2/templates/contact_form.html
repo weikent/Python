@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title>Contact us</title>
+    <meta name="author" content="weishijian">
+  </head>
+
+  <body>
+    <h1>Contact us</h1>
+
+    {% if errors %}
+    <ul>
+      {% for error in errors %}
+      <li> {{ error }} </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    <form action="/contact/" method="post">
+      <p>Subject: <input type = "text" name = "subject"></p>
+      <p>Your e-mail (optional): <input type = "text" name = "email"></p>
+      <p>Message: <textarea name = "message" rows = "10" cols = "50"></textarea></p>
+      <input type = "submit" value = "Submit">
+    </form>
+    
+    <address>
+      <a href="mailto:weishijian@weishijian-MacUbuntu">weishijian</a>,
+      28 11月 2013
+    </address>
+  </body>
+</html>

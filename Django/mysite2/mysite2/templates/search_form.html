@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title>search_form</title>
+    <meta name="author" content="weishijian">
+  </head>
+
+  <body>
+    <h1>search_form</h1>
+    
+    {% if error %}
+      <p style = "color: red;"> Please submit a search term.</p>
+    {% endif %}
+    
+    <form action="" method="get">
+        <input type="text" name="q">
+	<input type="text" name="q1">
+        <input type="submit" value="Search">
+    </form>
+    
+    <hr>
+    <address>
+      <a href="mailto:weishijian@weishijian-MacUbuntu">weishijian</a>,
+      28 11月 2013
+    </address>
+  </body>
+</html>

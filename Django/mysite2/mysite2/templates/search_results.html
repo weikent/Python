@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title>search_result</title>
+    <meta name="author" content="weishijian">
+  </head>
+
+  <body>
+    <h1>search_result</h1>
+
+    <p> You searched for: <strong> {{ query }} </strong></p>
+
+    {% if books %}
+        <p>Found {{ books|length }} book{{ books|pluralize }}. <p>
+        <ul>
+	  {% for book in books%}
+	  <li>{{ book.title }} </li>
+	  {% endfor %}
+	</ul>
+    {% else %}
+	<p> No books matched your search criteria. </p>
+    {% endif %}
+    
+    <hr>
+    <address>
+      <a href="mailto:weishijian@weishijian-MacUbuntu">weishijian</a>,
+      28 11月 2013
+    </address>
+  </body>
+</html>
