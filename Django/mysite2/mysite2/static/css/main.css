@@ -1,0 +1,137 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+    margin: 0px 0px 0px; padding: 0px; color: rgb(64, 64, 64); line-height: 150%; font-family: Arial, Helvetica, sans-serif; font-size: 12px;
+}
+div {
+    margin: 0px auto; padding: 0px;
+}
+h1 {
+    margin: 0px; padding: 0px; border: currentColor; list-style-type: none;
+}
+h2 {
+    margin: 0px; padding: 0px; border: currentColor; list-style-type: none;
+}
+h3 {
+    margin: 0px; padding: 0px; border: currentColor; list-style-type: none;
+}
+h4 {
+    margin: 0px; padding: 0px; border: currentColor; list-style-type: none;
+}
+h5 {
+    margin: 0px; padding: 0px; border: currentColor; list-style-type: none;
+}
+h6 {
+    margin: 0px; padding: 0px; border: currentColor; list-style-type: none;
+}
+ul {
+    margin: 0px; padding: 0px; border: currentColor; list-style-type: none;
+}
+li {
+    margin: 0px; padding: 0px; border: currentColor; list-style-type: none;
+}
+dl {
+    margin: 0px; padding: 0px; border: currentColor; list-style-type: none;
+}
+dt {
+    margin: 0px; padding: 0px; border: currentColor; list-style-type: none;
+}
+dd {
+    margin: 0px; padding: 0px; border: currentColor; list-style-type: none;
+}
+form {
+    margin: 0px; padding: 0px; border: currentColor; list-style-type: none;
+}
+img {
+    margin: 0px; padding: 0px; border: currentColor; list-style-type: none;
+}
+p {
+    margin: 0px; padding: 0px; border: currentColor; list-style-type: none;
+}
+
+.clearfix:after{content:"."; display:block; height:0; clear:both;visibility:hidden; float:right}
+/*鎼滅储*/
+#search{padding:52px 30px 0px 0px;; height:31px; line-height:0px;float:left;}
+#search a{color:#333; text-decoration:none;}
+#search .keys{ color:#fff; padding-left:10px; width:360px; }
+#search .go{background:url(../images/bnt_search.jpg); border:none; width:56px; height:31px; margin-top:1px;/* position:relative; top:3px; utf8涓�*/}
+/*椤堕儴绠＄悊鍨嬪鑸�*/
+.userInfo{*margin-right:10px; margin-top:7px; /*width:300px;*/ text-align:left; float:left}
+.userInfo a{color:#006acd; text-decoration:none;}
+#topNav{ height:33px; float:right; line-height:31px; color:#bebfc1; margin-right:81px; position:relative;margin-left:10px; background-image:url(../images/nav_right.jpg); background-position:0px 0px; background-repeat:no-repeat; width:73px; text-align:left;	padding-left:15px; margin-top:0px; }
+/*杈规*/
+.B_blue{border:1px solid #ccc;}
+.B_input{border:0px solid #eee;line-height:29px; background-image:url(../images/search.jpg);height:29px;}
+.inputBg{border:1px solid #b3b3b3; background:url(../images/inputbg.gif) repeat-x left top; height:18px;}
+.header_bg{
+    background-image:url(../images/header_bg.jpg);
+    background-repeat:no-repeat;
+    background-position:center top}
+.f_r{
+    background-image:url(../images/nav_bg.jpg);
+    height:18px;
+    text-align:right;
+    line-height:18px;
+    color:fff;
+}
+.f_r ul{
+    float:right;
+}
+.logo{float:left;}
+
+#lantern {	BORDER: #ffffff 1px solid; OVERFLOW: hidden; WIDTH: 752px; CURSOR: pointer; HEIGHT: 240px}
+#lanternMain {WIDTH: 752px; HEIGHT: 224px; BACKGROUND-COLOR: #ffffff}
+#lanternNavy {FONT-SIZE: 12px; FLOAT: left; OVERFLOW: hidden; WIDTH: 798px;COLOR: #ffffff; HEIGHT: 16px; TEXT-ALIGN: center}
+#lanternNavy .div_off1 {FLOAT: left; BORDER-LEFT: #666 0px solid; BORDER-BOTTOM: #ffffff 1px solid; HEIGHT: 16px; BACKGROUND-COLOR: #bbbbbb; TEXT-ALIGN: center}
+#lanternNavy .div_on1 {	PADDING-RIGHT: 24px; PADDING-LEFT: 10px; FLOAT: left; BORDER-LEFT: #ccc 0px solid; BORDER-BOTTOM: #ffffff 1px solid; HEIGHT: 16px; BACKGROUND-COLOR: #575757}
+#lanternNavy .div_off2 {FLOAT: left; BORDER-LEFT: #666 1px solid; BORDER-BOTTOM: #ffffff 1px solid; HEIGHT: 16px; BACKGROUND-COLOR: #bbbbbb; TEXT-ALIGN: center}
+#lanternNavy .div_on2 {	PADDING-RIGHT: 24px; PADDING-LEFT: 10px; FLOAT: left; BORDER-LEFT: #ccc 1px solid; BORDER-BOTTOM: #ffffff 1px solid; HEIGHT: 16px; BACKGROUND-COLOR: #575757}
+#lanternNavy .div_off3 {BORDER-RIGHT: #666 2px solid; FLOAT: left; BORDER-LEFT: #666 1px solid; BORDER-BOTTOM: #ffffff 1px solid; HEIGHT: 16px; BACKGROUND-COLOR: #bbbbbb; TEXT-ALIGN: center}
+#lanternNavy .div_on3 {	BORDER-RIGHT: #666 2px solid; PADDING-RIGHT: 24px; PADDING-LEFT: 10px; FLOAT: left; BORDER-LEFT: #666 1px solid; BORDER-BOTTOM: #ffffff 1px solid; HEIGHT: 16px; BACKGROUND-COLOR: #575757}
+#lanternImg {
+    OVERFLOW: hidden;
+    WIDTH: 752px;
+    position:absolute;
+    HEIGHT: 224px;
+}
+.jumppage {	FLOAT: left; WIDTH: 75px; HEIGHT: 29px}
+
+.box {
+    background: rgb(255, 255, 255); overflow: hidden; padding-bottom: 2px;
+}
+.box_1 {
+    border: 0px solid rgb(181, 183, 182); background-color: rgb(255, 255, 255);
+}
+.box_2 {
+    background: url("images/box_2Bg.gif") repeat-x left top rgb(237, 248, 254); border: 1px solid rgb(197, 228, 255); overflow: hidden;
+}
+.boxCenterList {
+    padding: 8px;
+}
+.helpTitBg {
+    padding: 0px 0px 10px 15px; border: 0px solid rgb(197, 228, 255); text-align: left; background-color: rgb(255, 255, 255);
+}
+.helpTitBg dl {
+    margin-right: 30px; float: left; _width: 130px; _margin-right: 20px;
+}
+.helpTitBg dt {
+    width: 110px; height: 33px; text-align: left; color: rgb(0, 0, 0); line-height: 33px; padding-left: 6px; font-size: 14px; font-weight: bold; margin-bottom: 8px; border-bottom-color: rgb(217, 215, 216); border-bottom-width: 2px; border-bottom-style: solid;
+}
+.helpTitBg dt a {
+    color: rgb(0, 0, 0); font-weight: bold; text-decoration: none;
+}
+.helpTitBg dd a {
+    padding: 0px 0px 0px 10px; height: 24px; color: rgb(85, 85, 102); line-height: 24px; text-decoration: none;
+}
+
+
+#bottomNav{width:958px;}
+.bNavList{border:1px solid #fff; background:#eef6f9; height:27px; line-height:27px; padding:0 12px;}
+.links{border:1px solid #fff; background:#eef6f9; padding:0 12px;}
+.bNavList a,.links a{color:#006acd; text-decoration:none;}
+.bNavList img{_position:relative; top:8px;}
+.links img{width:88px; height:30px; margin:5px;}
+
+#footer{width:960px; margin:5px auto 10px auto;}
+#footer .text{background:url(../images/footerLine.gif) no-repeat left center; text-align:left; margin-left:450px;padding-left:20px; *padding-bottom:20px;}
+#footer .text a{color:#404040; text-decoration:none;}

@@ -10,6 +10,9 @@ from django.shortcuts import render_to_response
 from django.shortcuts import render_to_response
 import MySQLdb
 
+from  mysite2.supperMarket import views
+
+
 def book_list(request):
     db = MySQLdb.connect(user='root', db='mydb', passwd='wsj673756', host='localhost')
     cursor = db.cursor()
@@ -42,7 +45,8 @@ def current_datetime(request):
     # html = t.render(Context(locals()))
     # # html = "<html><body>This time is %s. </body></html> " % now
     # # html1 = settings.TEMPLATE_DIRS
-    return render_to_response("current_time/current_time.html", {"current_time": current_time})
+    mainSort = views.mainSort()
+    return render_to_response("current_time/current_time.html", {"current_time": current_time, 'title':'current_time', 'mainSort': mainSort})
 
 from django.http import Http404
 def hours_ahead(request, offset):

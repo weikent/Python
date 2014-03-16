@@ -1,20 +1,58 @@
-<!-- this is a test -->
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-  <head>
-    <title>current_time</title>
-    <meta name="author" content="weishijian">
-  </head>
+{% include 'header.html' %}
+<body style="text-align:center">
+  {% include 'body_master.html' %}
+  <div style="width:952px; height:531px; margin:0 auto;">
+    <div style="width:182px; height:510px; float:left; border-left:1px solid #8C8C8C; border-bottom:1px solid #8C8C8C; border-right:1px solid #8C8C8C;">
+      <div id="ddsidemenubar" class="markermenu">
+	<ul>
 
-  <body>
-    <h1>current_time: {{ current_time }}</h1>
+	  {% for main in mainSort %}
+	  <li rel="ddsubmenuside1"><a href={{ main.linkURL }}>{{ main.name }} <img src={{ main.image }} class="rightarrowpointer" style="width: 12px; height: 16px;"></a></li>
+	  {% empty %}
+	  {% endfor %}
+	</ul>
+      </div>
+    </div>
+    <div style="width:754px; height:531px; float:right;">
+      <div style="width:752px; height:243px; margin:0 auto; border-left:1px solid #8C8C8C; border-bottom:1px solid #8C8C8C; border-right:1px solid #8C8C8C;">
+	<script type="text/javascript">
+	  document.lanterninfo=function(){
+	  Lanterninfo=new Array();
+	  Lanterninfo=[
+	  ['/static/images/indexgg03.jpg','低价风暴','/topic.php?topic_id=34'],['/static/images/indexgg01.jpg','口罩','goods.php?id=9302'],['/static/images/indexgg09.jpg','办公室零食','/topic.php?topic_id=33'],['/static/images/indexgg10.jpg','积分商城','/topic.php?topic_id=22'],['/static/images/indexgg02.jpg','进口食品','/topic.php?topic_id=32']];
+	  return Lanterninfo;
+	  }
+	</script>
+	<div id="lantern">
+	  <div id="lanternMain">
+	    <div id="lanternImg">
+	      <div style="Z-INDEX: 100; WIDTH: 752px; BORDER-BOTTOM: #ffffff 1px solid; POSITION: absolute; TOP: 221px; HEIGHT: 2px"><img id="lanternPoint" style="position: absolute; left: 11px;" src="images/lanternpoint.gif"> </div><div id="LanternImg0" style="position: absolute; left: 0px; z-index: 0; opacity: 100;"><img src="images/indexgg03.jpg" style="width: 752px;"></div><div id="LanternImg1" style="position: absolute; left: 752px; z-index: -1; opacity: 100;"><img src="images/indexgg01.jpg" style="width: 752px;"></div><div id="LanternImg2" style="position: absolute; left: 752px; z-index: -1; opacity: 100;"><img src="images/indexgg09.jpg" style="width: 752px;"></div><div id="LanternImg3" style="position: absolute; left: 752px; z-index: -1; opacity: 100;"><img src="images/indexgg10.jpg" style="width: 752px;"></div><div id="LanternImg4" style="position: absolute; left: 752px; z-index: -1; opacity: 100;"><img src="images/indexgg02.jpg" style="width: 752px;"></div></div>
+	  </div>
+	  <div id="lanternNavy" style="background-color: rgb(187, 187, 187);"><div id="LanternN0" class="div_on1" style="width: 55px;"><strong>1</strong><span id="lanternNc0" style="">&nbsp;低价风暴</span></div><div id="LanternN1" class="div_off2" style="width: 165.75px;"><strong>2</strong><span id="lanternNc1" style="display: none;">&nbsp;口罩</span></div><div id="LanternN2" class="div_off2" style="width: 165.75px;"><strong>3</strong><span id="lanternNc2" style="display: none;">&nbsp;办公室零食</span></div><div id="LanternN3" class="div_off2" style="width: 165.75px;"><strong>4</strong><span id="lanternNc3" style="display: none;">&nbsp;积分商城</span></div><div id="LanternN4" class="div_off3" style="width: 165.75px;"><strong>5</strong><span id="lanternNc4" style="display: none;">&nbsp;进口食品</span></div></div>
+	  <script type="text/javascript">
+	    Lantern.info=parent.document.lanterninfo();
+	    Lantern.init();
+	  </script>
+	</div>
+	
+      </div>
+      <div style="width:752px; height:286px; margin:0 auto; border-left:1px solid #8C8C8C; border-bottom:1px solid #8C8C8C; border-right:1px solid #8C8C8C;">
+	<div style="width:451px; height:286px; float:left; border-right:1px solid #8C8C8C;">
+	  <div style="width:451px; height:140px; float:left; border-bottom:1px solid #8C8C8C;"><a href="/topic.php?topic_id=10"><img src="/static/images/indexgg06.jpg" width="451" height="140" border="0"></a></div>
+	  <div style="width:451px; height:145px; float:left; "><a href="/topic.php?topic_id=35"><img src="/static/images/indexgg08.jpg" width="451" height="145" border="0"></a></div>
+	</div>
+	<div style="width:300px; height:286x; float:right;"><a href="/dxs/"><img src="/static/images/indexgg07.jpg" width="300" height="286" border="0"></a></div>
+      </div>
+    </div>
+  </div>
 
+  <div style="width:952px; height:200px; margin:0 auto;">
+
+    current_time: {{ current_time }}
     
-    
-    <hr>
     <address>
-      <a href="mailto:weishijian@weishijian-MacUbuntu">weishijian</a>,
-      30 10月 2013
+      <a href="mailto:weishijian@weishijian-MacUbuntu">weishijian</a>, 30 10月 2013
     </address>
-  </body>
+  </div>
+</body>
 </html>
