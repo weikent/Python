@@ -46,7 +46,20 @@ def current_datetime(request):
     # # html = "<html><body>This time is %s. </body></html> " % now
     # # html1 = settings.TEMPLATE_DIRS
     mainSort = views.mainSort()
-    return render_to_response("current_time/current_time.html", {"current_time": current_time, 'title':'current_time', 'mainSort': mainSort})
+    imagePath = views.imagePath()
+    index = []
+    liangyou = []
+    seasonings = []
+
+    for item in imagePath:
+        if item.name == 'index':
+            index = item
+        if item.name == 'cereal&oil':
+            liangyou = item
+        if item.name == 'seasonings':
+            seasonings = item
+
+    return render_to_response("current_time/current_time.html", {"current_time": current_time, 'title':'current_time', 'mainSort': mainSort, 'index': index, 'liangyou': liangyou, 'seasonings' : seasonings})
 
 from django.http import Http404
 def hours_ahead(request, offset):
