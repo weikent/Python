@@ -1,0 +1,953 @@
+{% include 'header.html' %}
+<body style="text-align:center">
+  {% include 'body_master.html' %}
+  <div class="block clearfix">
+    
+    <div class="AreaL">
+      
+      <script type="text/javascript">
+	/*
+	* Author:Jin.DH
+	* Date:2011.3
+	* Blog:http://hi.baidu.com/webstarting/blog
+	*/
+	function getCookie(c_name){ 
+	if (document.cookie.length>0){
+	c_start=document.cookie.indexOf(c_name + "=");
+	if (c_start!=-1){
+	c_start=c_start + c_name.length+1 ;
+	c_end=document.cookie.indexOf(";",c_start);
+	if (c_end==-1) c_end=document.cookie.length
+	return unescape(document.cookie.substring(c_start,c_end));
+	}
+	}
+	return ""
+	};
+	function setCookie(c_name,value,expiredays){
+	var exdate=new Date()
+	exdate.setDate(exdate.getDate()+expiredays);
+	document.cookie=c_name+ "=" +escape(value)+((expiredays==null) ? "" : "; expires="+exdate.toGMTString());
+	}
+	function addEvent(obj,type,fn){
+	if(obj.addEventListener){
+	obj.addEventListener(type,fn,false); 
+	return true;
+	}else if(obj.attachEvent){
+	obj["e"+type+fn] = fn;
+	obj[type+fn] = function(){
+	obj["e"+type+fn](window.event); 
+	}
+	obj.attachEvent("on"+type,obj[type+fn]);
+	return true;
+	}
+	return false;
+	}
+	var menu = {};
+	menu.init = function(){
+	var self = this;
+	this.div = document.getElementById("menu"); 
+	this.li = this.div.getElementsByTagName("li");
+	this.l = this.li.length;
+	for(var i = 0;i<this.l;i++){
+			  this.li[i].setAttribute("num",i); 
+			  var h_a = this.li[i].firstChild;
+			  addEvent(h_a,"click",function(){self.clickFn(this)});
+			  }
+			  this.c=getCookie('menuNum');
+			  
+			  if(this.c==null || this.c==""){
+			  this.c = 0; 
+			  };
+			  this.show();
+			  };
+			  menu.clickFn = function(o){
+			  this.c = o.parentNode.getAttribute("num");
+			  this.show();
+			  setCookie("menuNum",this.c,365);
+			  }
+			  menu.show = function(){
+			  for(var i = 0;i<this.l;i++){
+					    this.li[i].getElementsByTagName("div")[0].style.display="none";
+					    };
+					    this.li[this.c].getElementsByTagName("div")[0].style.display="block";
+					    };
+					    window.onload = function(){
+					    menu.init();
+					    }
+					    </script>
+      <div class="menu" id="menu">
+	<ul>
+	  <li num="0"><a href="category.php?id=695" class="h" onclick="expandIt('cattree695');">休闲食品</a>
+            <div id="cattree695" style="display: block;">
+              <p> <a href="category.php?id=825">进口食品</a> </p> 
+              
+              <p> <a href="category.php?id=826">办公室零食</a> </p> 
+              
+              <p> <a href="category.php?id=696">干果</a> </p> 
+              
+              <p> <a href="category.php?id=697">蜜饯果脯</a> </p> 
+              
+              <p> <a href="category.php?id=698">薯片</a> </p> 
+              
+              <p> <a href="category.php?id=699">膨化食品</a> </p> 
+              
+              <p> <a href="category.php?id=703">巧克力</a> </p> 
+              
+              <p> <a href="category.php?id=704">糖果</a> </p> 
+              
+              <p> <a href="category.php?id=700">豆干，肉干</a> </p> 
+              
+              <p> <a href="category.php?id=773">山楂食品</a> </p> 
+              
+              <p> <a href="category.php?id=779">卤味零食</a> </p> 
+              
+              <p> <a href="category.php?id=701">饼干，曲奇</a> </p> 
+              
+              <p> <a href="category.php?id=702">糕点，派</a> </p> 
+              
+              <p> <a href="category.php?id=770">水果罐头</a> </p> 
+              
+              
+            </div>
+          </li>
+          <li num="1"><a href="category.php?id=707" class="h" onclick="expandIt('cattree707');">饮料</a>
+            <div id="cattree707" style="display: none;">
+              <p> <a href="category.php?id=708">水</a> </p> 
+              
+              <p> <a href="category.php?id=811">苏打水</a> </p> 
+              
+              <p> <a href="category.php?id=714">乳饮料</a> </p> 
+              
+              <p> <a href="category.php?id=756">牛奶/酸奶</a> </p> 
+              
+              <p> <a href="category.php?id=709">碳酸饮料</a> </p> 
+              
+              <p> <a href="category.php?id=710">茶饮料</a> </p> 
+              
+              <p> <a href="category.php?id=711">果汁</a> </p> 
+              
+              <p> <a href="category.php?id=712">功能饮料</a> </p> 
+              
+              <p> <a href="category.php?id=713">咖啡饮料</a> </p> 
+              
+              <p> <a href="category.php?id=716">红酒</a> </p> 
+              
+              <p> <a href="category.php?id=715">啤酒</a> </p> 
+              
+              <p> <a href="category.php?id=717">白酒</a> </p> 
+              
+              <p> <a href="category.php?id=718">黄酒</a> </p> 
+              
+              <p> <a href="category.php?id=719">洋酒</a> </p> 
+              
+              
+            </div>
+          </li>
+          <li num="2"><a href="category.php?id=720" class="h" onclick="expandIt('cattree720');">冲调饮品</a>
+            <div id="cattree720" style="display: none;">
+              <p> <a href="category.php?id=721">茶，奶茶</a> </p> 
+              
+              <p> <a href="category.php?id=723">奶粉</a> </p> 
+              
+              <p> <a href="category.php?id=724">蜂蜜</a> </p> 
+              
+              <p> <a href="category.php?id=771">果珍冲剂</a> </p> 
+              
+              <p> <a href="category.php?id=775">巧克力冲剂</a> </p> 
+              
+              <p> <a href="category.php?id=758">咖啡</a> </p> 
+              
+              <p> <a href="category.php?id=757">方糖</a> </p> 
+              
+              <p> <a href="category.php?id=725">母婴营养</a> </p> 
+              
+              <p> <a href="category.php?id=726">其他冲调</a> </p> 
+              
+              
+            </div>
+          </li>
+          <li num="3"><a href="category.php?id=679" class="h" onclick="expandIt('cattree679');">粮油</a>
+            <div id="cattree679" style="display: none;">
+              <p> <a href="category.php?id=680">米</a> </p> 
+              
+              <p> <a href="category.php?id=681">面</a> </p> 
+              
+              <p> <a href="category.php?id=684">食用油</a> </p> 
+              
+              <p> <a href="category.php?id=683">杂粮</a> </p> 
+              
+              <p> <a href="category.php?id=682">挂面，意面</a> </p> 
+              
+              <p> <a href="category.php?id=751">方便面，方便粉丝</a> </p> 
+              
+              <p> <a href="category.php?id=752">八宝粥</a> </p> 
+              
+              <p> <a href="category.php?id=899">肉/蛋</a> </p> 
+              
+              <p> <a href="category.php?id=693">鱼罐头/肉罐头</a> </p> 
+              
+              
+            </div>
+          </li>
+          <li num="4"><a href="category.php?id=686" class="h" onclick="expandIt('cattree686');">副食调料</a>
+            <div id="cattree686" style="display: none;">
+              <p> <a href="category.php?id=753">盐，糖</a> </p> 
+              
+              <p> <a href="category.php?id=688">调味汁</a> </p> 
+              
+              <p> <a href="category.php?id=754">味精，鸡精</a> </p> 
+              
+              <p> <a href="category.php?id=690">调味酱</a> </p> 
+              
+              <p> <a href="category.php?id=778">咖喱块/粉</a> </p> 
+              
+              <p> <a href="category.php?id=689">其他调味料</a> </p> 
+              
+              <p> <a href="category.php?id=694">南北干货</a> </p> 
+              
+              <p> <a href="category.php?id=691">酱菜，卤蛋</a> </p> 
+              
+              <p> <a href="category.php?id=692">果酱</a> </p> 
+              
+              <p> <a href="category.php?id=785">火腿</a> </p> 
+              
+              <p> <a href="category.php?id=842">芝士/奶酪</a> </p> 
+              
+              
+            </div>
+          </li>
+          <li num="5"><a href="category.php?id=727" class="h" onclick="expandIt('cattree727');">个人用品</a>
+            <div id="cattree727" style="display: none;">
+              <p> <a href="category.php?id=728">口腔护理</a> </p> 
+              
+              <p> <a href="category.php?id=729">洗发美发</a> </p> 
+              
+              <p> <a href="category.php?id=730">沐浴</a> </p> 
+              
+              <p> <a href="category.php?id=748">香皂，洗手液</a> </p> 
+              
+              <p> <a href="category.php?id=731">化妆护肤洁面</a> </p> 
+              
+              <p> <a href="category.php?id=732">纸制品</a> </p> 
+              
+              <p> <a href="category.php?id=746">女士用品</a> </p> 
+              
+              <p> <a href="category.php?id=734">男士用品</a> </p> 
+              
+              <p> <a href="category.php?id=735">婴儿护理</a> </p> 
+              
+              <p> <a href="category.php?id=733">拖鞋/手套/口罩</a> </p> 
+              
+              <p> <a href="category.php?id=808">旅游用品</a> </p> 
+              
+              <p> <a href="category.php?id=829">毛巾</a> </p> 
+              
+              <p> <a href="category.php?id=832">内衣裤/袜子</a> </p> 
+              
+              
+            </div>
+          </li>
+          <li num="6"><a href="category.php?id=736" class="h" onclick="expandIt('cattree736');">家庭护理</a>
+            <div id="cattree736" style="display: none;">
+              <p> <a href="category.php?id=737">洗衣</a> </p> 
+              
+              <p> <a href="category.php?id=738">洗洁精</a> </p> 
+              
+              <p> <a href="category.php?id=780">餐厨用品</a> </p> 
+              
+              <p> <a href="category.php?id=739">卫生间用品</a> </p> 
+              
+              <p> <a href="category.php?id=749">居室用品</a> </p> 
+              
+              <p> <a href="category.php?id=761">居室清洁</a> </p> 
+              
+              <p> <a href="category.php?id=762">鞋油</a> </p> 
+              
+              <p> <a href="category.php?id=742">宠物用品</a> </p> 
+              
+              <p> <a href="category.php?id=741">夏季用品</a> </p> 
+              
+              <p> <a href="category.php?id=827">被子/电热毯</a> </p> 
+              
+              <p> <a href="category.php?id=833">收纳盒/筐</a> </p> 
+              
+              <p> <a href="category.php?id=843">衣架</a> </p> 
+              
+              <p> <a href="category.php?id=772">其他家庭用品</a> </p> 
+              
+              
+            </div>
+          </li>
+          <li num="7"><a href="category.php?id=786" class="h" onclick="expandIt('cattree786');">办公用品</a>
+            <div id="cattree786" style="display: none;">
+              <p> <a href="category.php?id=787">笔类</a> </p> 
+              
+              <p> <a href="category.php?id=844">考试专用</a> </p> 
+              
+              <p> <a href="category.php?id=790">本册/便签</a> </p> 
+              
+              <p> <a href="category.php?id=796">纸类</a> </p> 
+              
+              <p> <a href="category.php?id=793">桌上文具</a> </p> 
+              
+              <p> <a href="category.php?id=798">文件管理</a> </p> 
+              
+              <p> <a href="category.php?id=802">财务用品</a> </p> 
+              
+              <p> <a href="category.php?id=797">封装用品</a> </p> 
+              
+              <p> <a href="category.php?id=849">会议/白板</a> </p> 
+              
+              <p> <a href="category.php?id=803">电池</a> </p> 
+              
+              <p> <a href="category.php?id=812">其他文具</a> </p> 
+              
+              
+            </div>
+          </li>
+          <li num="8"><a href="category.php?id=804" class="h" onclick="expandIt('cattree804');">安利产品</a>
+            <div id="cattree804" style="display: none;">
+              <p> <a href="category.php?id=805">生活HOME</a> </p> 
+              
+              <p> <a href="category.php?id=806">纽崔莱营养品</a> </p> 
+              
+              
+            </div>
+          </li>
+          <li num="9"><a href="category.php?id=813" class="h" onclick="expandIt('cattree813');">食品礼盒</a>
+            <div id="cattree813" style="display: none;">
+              <p> <a href="category.php?id=818">杂粮礼盒</a> </p> 
+              
+              <p> <a href="category.php?id=854">大米礼盒</a> </p> 
+              
+              <p> <a href="category.php?id=853">天津特产</a> </p> 
+              
+              <p> <a href="category.php?id=821">其他</a> </p> 
+              
+              
+            </div>
+          </li>
+          <li num="10"><a href="category.php?id=838" class="h" onclick="expandIt('cattree838');">体育用品</a>
+            <div id="cattree838" style="display: none;">
+              <p> <a href="category.php?id=850">溜冰鞋</a> </p> 
+              
+              <p> <a href="category.php?id=851">羽毛球拍</a> </p> 
+              
+              <p> <a href="category.php?id=898">网球拍</a> </p> 
+              
+              <p> <a href="category.php?id=900">篮球</a> </p> 
+              
+              
+            </div>
+          </li>
+          <li num="11"><a href="category.php?id=834" class="h" onclick="expandIt('cattree834');">日用小家电</a>
+            <div id="cattree834" style="display: none;">
+              <p> <a href="category.php?id=835">生活电器</a> </p> 
+              
+              <p> <a href="category.php?id=836">厨房电器</a> </p> 
+              
+              <p> <a href="category.php?id=837">个护健康</a> </p> 
+              
+              <p> <a href="category.php?id=840">插线板</a> </p> 
+              
+              <p> <a href="category.php?id=841">灯具</a> </p> 
+              
+              
+            </div>
+          </li>
+          <li num="12"><a href="category.php?id=846" class="h" onclick="expandIt('cattree846');">数码用品</a>
+            <div id="cattree846" style="display: none;">
+              <p> <a href="category.php?id=847">电池/充电宝</a> </p> 
+              
+              <p> <a href="category.php?id=848">耳机</a> </p> 
+              
+              
+            </div>
+          </li>
+          <li num="13"><a href="category.php?id=855" class="h" onclick="expandIt('cattree855');">箱包</a>
+            <div id="cattree855" style="display: none;">
+              <p> <a href="category.php?id=856">电脑包</a> </p> 
+              
+              <p> <a href="category.php?id=857">背包</a> </p> 
+              
+              <p> <a href="category.php?id=896">儿童包</a> </p> 
+              
+              <p> <a href="category.php?id=897">挎包</a> </p> 
+              
+              
+            </div>
+          </li>
+          <li num="14"><a href="category.php?id=744" class="h" onclick="expandIt('cattree744');">大学生专区</a>
+            <div id="cattree744" style="display: none;">
+              <p> <a href="category.php?id=859">方便食品</a> </p> 
+              
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=862">方便面/粉丝</a>
+	      
+	      
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=863">火腿肠</a>
+	      
+	      
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=864">糕点/饼干</a>
+	      
+	      
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=865">罐头</a>
+	      
+	      
+              <p> <a href="category.php?id=860">饮品</a> </p> 
+              
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=870">水、软饮料</a>
+	      
+	      
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=871">奶制品</a>
+	      
+	      
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=872">酒精饮品</a>
+	      
+	      
+              <p> <a href="category.php?id=861">零食</a> </p> 
+              
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=873">干  果</a>
+	      
+	      
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=874">巧克力，糖果</a>
+	      
+	      
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=875">膨化食品</a>
+	      
+	      
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=876">进口食品</a>
+	      
+	      
+              <p> <a href="category.php?id=866">洗化，日用</a> </p> 
+              
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=877">纸制品</a>
+	      
+	      
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=878">洗漱/洗发/沐浴</a>
+	      
+	      
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=879">洗涤用品</a>
+	      
+	      
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=880">男士护肤</a>
+	      
+	      
+              <p> <a href="category.php?id=867">女生用品</a> </p> 
+              
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=881">化妆护肤</a>
+	      
+	      
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=882">卫生巾/纸</a>
+	      
+	      
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=883">女士清洁</a>
+	      
+	      
+              <p> <a href="category.php?id=868">生活百货</a> </p> 
+              
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=888">学生文具</a>
+	      
+	      
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=889">居室用品</a>
+	      
+	      
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=890">小家电</a>
+	      
+	      
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=891">衣帽/裤袜</a>
+	      
+	      
+              <p> <a href="category.php?id=884">体育用品</a> </p> 
+              
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=885">球类</a>
+	      
+	      
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=886">鞋类/球袜</a>
+	      
+	      
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=887">其他</a>
+	      
+	      
+              <p> <a href="category.php?id=869">其他学生用品</a> </p> 
+              
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=892">水果</a>
+	      
+	      
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=893">天津特产礼品</a>
+	      
+	      
+	      &nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?id=895">数码产品</a>
+	      
+	      
+              
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="box">
+	<div class="box_1">
+	  
+	</div>
+      </div>
+      <div class="blank5"></div>
+      
+      
+    </div>
+    
+    
+    <div class="AreaR">
+      <h3 style="height:42px;line-height:42px;padding-left:10px;" class="ur_here"><span>当前位置: <a href=".">首页</a> <code>&gt;</code> <a href="category.php?id=695">休闲食品</a></span></h3>
+      
+      <div class="box">
+	<div class="box_1">
+	  <h3 class="list_h3"><span>商品筛选</span></h3>
+	  <div class="screeBox">
+	    <strong>品牌：</strong>
+	    <span>全部</span>
+	    <a href="category.php?id=695&amp;brand=54&amp;price_min=0&amp;price_max=0">澳华</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=65&amp;price_min=0&amp;price_max=0">奥利奥</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=90&amp;price_min=0&amp;price_max=0">阿尔卑斯</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=862&amp;price_min=0&amp;price_max=0">爱时乐</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=64&amp;price_min=0&amp;price_max=0">波力</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=91&amp;price_min=0&amp;price_max=0">不二家</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=769&amp;price_min=0&amp;price_max=0">百味林</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=897&amp;price_min=0&amp;price_max=0">百吉福</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=973&amp;price_min=0&amp;price_max=0">百事食品</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=37&amp;price_min=0&amp;price_max=0">长思</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=81&amp;price_min=0&amp;price_max=0">脆香米</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=92&amp;price_min=0&amp;price_max=0">彩虹糖</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=630&amp;price_min=0&amp;price_max=0">春望</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=671&amp;price_min=0&amp;price_max=0">车里哥夫</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=53&amp;price_min=0&amp;price_max=0">达利园</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=82&amp;price_min=0&amp;price_max=0">德芙</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=95&amp;price_min=0&amp;price_max=0">大白兔</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=631&amp;price_min=0&amp;price_max=0">大地农夫</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=773&amp;price_min=0&amp;price_max=0">达利集团</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=83&amp;price_min=0&amp;price_max=0">费列罗</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=642&amp;price_min=0&amp;price_max=0">菲尚喜</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=674&amp;price_min=0&amp;price_max=0">富达</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=675&amp;price_min=0&amp;price_max=0">福第禄</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=845&amp;price_min=0&amp;price_max=0">芙列依</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=68&amp;price_min=0&amp;price_max=0">格力高</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=624&amp;price_min=0&amp;price_max=0">甘源</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=987&amp;price_min=0&amp;price_max=0">乖乖</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=1020&amp;price_min=0&amp;price_max=0">桂发祥</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=44&amp;price_min=0&amp;price_max=0">好丽友</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=84&amp;price_min=0&amp;price_max=0">好时</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=96&amp;price_min=0&amp;price_max=0">荷氏</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=97&amp;price_min=0&amp;price_max=0">黄飞红</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=190&amp;price_min=0&amp;price_max=0">禾野</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=544&amp;price_min=0&amp;price_max=0">好时KISS</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=621&amp;price_min=0&amp;price_max=0">红森林</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=628&amp;price_min=0&amp;price_max=0">宏香记</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=670&amp;price_min=0&amp;price_max=0">海飘</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=786&amp;price_min=0&amp;price_max=0">徽记</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=830&amp;price_min=0&amp;price_max=0">恒慧</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=1076&amp;price_min=0&amp;price_max=0">好巴食</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=1081&amp;price_min=0&amp;price_max=0">汉波</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=1085&amp;price_min=0&amp;price_max=0">花齿轮</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=39&amp;price_min=0&amp;price_max=0">佳宝</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=85&amp;price_min=0&amp;price_max=0">吉百利</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=98&amp;price_min=0&amp;price_max=0">箭牌</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=99&amp;price_min=0&amp;price_max=0">金帝</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=783&amp;price_min=0&amp;price_max=0">金丝猴</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=820&amp;price_min=0&amp;price_max=0">健达</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=1008&amp;price_min=0&amp;price_max=0">津祥斋</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=1072&amp;price_min=0&amp;price_max=0">江中</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=1074&amp;price_min=0&amp;price_max=0">精武</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=24&amp;price_min=0&amp;price_max=0">康师傅</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=49&amp;price_min=0&amp;price_max=0">可比克</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=50&amp;price_min=0&amp;price_max=0">卡夫</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=56&amp;price_min=0&amp;price_max=0">卡旺</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=787&amp;price_min=0&amp;price_max=0">康辉</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=833&amp;price_min=0&amp;price_max=0">康发</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=985&amp;price_min=0&amp;price_max=0">卡乐</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=999&amp;price_min=0&amp;price_max=0">卡乐薯</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=48&amp;price_min=0&amp;price_max=0">乐事</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=71&amp;price_min=0&amp;price_max=0">乐天</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=501&amp;price_min=0&amp;price_max=0">乐之</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=522&amp;price_min=0&amp;price_max=0">辣媳妇</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=585&amp;price_min=0&amp;price_max=0">绿箭</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=622&amp;price_min=0&amp;price_max=0">礼财记</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=636&amp;price_min=0&amp;price_max=0">六合</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=638&amp;price_min=0&amp;price_max=0">零食多</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=658&amp;price_min=0&amp;price_max=0">绿力</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=1073&amp;price_min=0&amp;price_max=0">立丰</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=1084&amp;price_min=0&amp;price_max=0">溜溜梅</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=77&amp;price_min=0&amp;price_max=0">米老头</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=80&amp;price_min=0&amp;price_max=0">M&amp;M’s</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=86&amp;price_min=0&amp;price_max=0">明治</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=100&amp;price_min=0&amp;price_max=0">曼妥思</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=113&amp;price_min=0&amp;price_max=0">美京</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=668&amp;price_min=0&amp;price_max=0">马努拉</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=672&amp;price_min=0&amp;price_max=0">磨谷磨谷</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=764&amp;price_min=0&amp;price_max=0">满地可</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=846&amp;price_min=0&amp;price_max=0">麦德好</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=1055&amp;price_min=0&amp;price_max=0">M豆</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=1082&amp;price_min=0&amp;price_max=0">猫哆哩</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=1083&amp;price_min=0&amp;price_max=0">尼柚</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=801&amp;price_min=0&amp;price_max=0">潘氏</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=844&amp;price_min=0&amp;price_max=0">盼盼</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=997&amp;price_min=0&amp;price_max=0">品维</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=1075&amp;price_min=0&amp;price_max=0">品品</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=33&amp;price_min=0&amp;price_max=0">洽洽</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=46&amp;price_min=0&amp;price_max=0">雀巢</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=72&amp;price_min=0&amp;price_max=0">趣多多</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=632&amp;price_min=0&amp;price_max=0">七宝一丁</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=661&amp;price_min=0&amp;price_max=0">7D</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=673&amp;price_min=0&amp;price_max=0">泉记</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=87&amp;price_min=0&amp;price_max=0">瑞士莲</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=664&amp;price_min=0&amp;price_max=0">瑞士</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=42&amp;price_min=0&amp;price_max=0">上好佳</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=88&amp;price_min=0&amp;price_max=0">士力架</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=623&amp;price_min=0&amp;price_max=0">森度</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=625&amp;price_min=0&amp;price_max=0">森宝</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=626&amp;price_min=0&amp;price_max=0">苏微</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=640&amp;price_min=0&amp;price_max=0">苏格格</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=660&amp;price_min=0&amp;price_max=0">素手浣花</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=663&amp;price_min=0&amp;price_max=0">素玛哥</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=827&amp;price_min=0&amp;price_max=0">四洲</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=864&amp;price_min=0&amp;price_max=0">十月初五</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=1077&amp;price_min=0&amp;price_max=0">施尔德</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=1080&amp;price_min=0&amp;price_max=0">寿星</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=58&amp;price_min=0&amp;price_max=0">台之味</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=73&amp;price_min=0&amp;price_max=0">太平</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=574&amp;price_min=0&amp;price_max=0">太阳</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=676&amp;price_min=0&amp;price_max=0">泰国大哥</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=866&amp;price_min=0&amp;price_max=0">桃李</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=45&amp;price_min=0&amp;price_max=0">旺旺</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=102&amp;price_min=0&amp;price_max=0">旺仔</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=1086&amp;price_min=0&amp;price_max=0">沃果园</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=75&amp;price_min=0&amp;price_max=0">徐福记</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=107&amp;price_min=0&amp;price_max=0">喜之郎</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=575&amp;price_min=0&amp;price_max=0">炫迈</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=629&amp;price_min=0&amp;price_max=0">鲜引力</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=635&amp;price_min=0&amp;price_max=0">希鲜娜</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=637&amp;price_min=0&amp;price_max=0">雪海梅乡</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=802&amp;price_min=0&amp;price_max=0">喜爹爹</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=1057&amp;price_min=0&amp;price_max=0">香记</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=40&amp;price_min=0&amp;price_max=0">悠伴</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=89&amp;price_min=0&amp;price_max=0">怡口莲</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=103&amp;price_min=0&amp;price_max=0">益达</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=104&amp;price_min=0&amp;price_max=0">悠哈</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=520&amp;price_min=0&amp;price_max=0">姚太太</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=523&amp;price_min=0&amp;price_max=0">怡达</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=634&amp;price_min=0&amp;price_max=0">奕方</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=639&amp;price_min=0&amp;price_max=0">有臣</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=659&amp;price_min=0&amp;price_max=0">亚细亚</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=788&amp;price_min=0&amp;price_max=0">俞记</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=800&amp;price_min=0&amp;price_max=0">怡冠园</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=831&amp;price_min=0&amp;price_max=0">一鸣</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=996&amp;price_min=0&amp;price_max=0">运康</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=34&amp;price_min=0&amp;price_max=0">张二嘎</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=35&amp;price_min=0&amp;price_max=0">正林</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=41&amp;price_min=0&amp;price_max=0">展翠</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=209&amp;price_min=0&amp;price_max=0">芝麻官</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=627&amp;price_min=0&amp;price_max=0">正光</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=835&amp;price_min=0&amp;price_max=0">真心</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=898&amp;price_min=0&amp;price_max=0">正中</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=1078&amp;price_min=0&amp;price_max=0">祖名</a>&nbsp;
+	    <a href="category.php?id=695&amp;brand=1079&amp;price_min=0&amp;price_max=0">智神</a>&nbsp;
+	  </div>
+	</div>
+      </div>
+      <div class="blank5"></div>
+      
+      
+      <div class="box">
+	<div class="box_1">
+	  <h3 class="list_h3">
+	    <form method="GET" class="sort" name="listform">
+	      <a name="goods_list"></a>显示方式：
+	      &nbsp;&nbsp; 
+	      <a href="category.php?category=695&amp;display=grid&amp;brand=0&amp;price_min=0&amp;price_max=0&amp;filter_attr=0&amp;page=1&amp;sort=shop_price&amp;order=DESC#goods_list"><img src="themes/123/images/shop_price_ASC.gif" alt="按价格排序"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?category=695&amp;display=grid&amp;brand=0&amp;price_min=0&amp;price_max=0&amp;filter_attr=0&amp;page=1&amp;sort=goods_weight&amp;order=ASC#goods_list"><img src="themes/123/images/goods_weight_default.gif" alt="重量"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  <!--
+		      <a href="javascript:;" onClick="javascript:display_mode('list')"><img src="themes/123/images/display_mode_list.gif" alt=""></a>
+			<a href="javascript:;" onClick="javascript:display_mode('grid')"><img src="themes/123/images/display_mode_grid_act.gif" alt=""></a>
+			  <a href="javascript:;" onClick="javascript:display_mode('text')"><img src="themes/123/images/display_mode_text.gif" alt=""></a>&nbsp;&nbsp;
+			    -->  
+		  
+		  <input type="hidden" name="category" value="695">
+		    <input type="hidden" name="display" value="grid" id="display">
+		      <input type="hidden" name="brand" value="0">
+			<input type="hidden" name="price_min" value="0">
+			  <input type="hidden" name="price_max" value="0">
+			    <input type="hidden" name="filter_attr" value="0">
+			      <input type="hidden" name="page" value="1">
+				<input type="hidden" name="sort" value="shop_price">
+				  <input type="hidden" name="order" value="ASC">
+				  </form>
+				</h3>
+				<form name="compareForm" action="compare.php" method="post" onsubmit="return compareGoods(this);">
+				  
+				  
+				  
+				  <div class="centerPadd">
+				    <div class="clearfix goodsBox" style="border:none;width:auto;">
+				      <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+					<a href="goods.php?id=5492" target="_blank"><img src="images/201310/thumb_img/5492_thumb_G_1381705012012.jpg" alt="甘源牌蟹黄味花生1袋10g" class="goodsimg"></a><br>
+					    <p><a href="goods.php?id=5492" target="_blank" title="甘源牌蟹黄味花生1袋10g">甘源牌蟹黄味花生1袋10g</a></p>
+					    <font class="market_s">￥0.55</font>
+					    <font class="shop_s">￥0.50</font><br>
+					      <a href="javascript:collect(5492);" class="f7">&nbsp;收藏夹&nbsp;</a>
+					      <a href="javascript:addToCart(5492)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+					      
+					    </div>
+					    <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+					      <a href="goods.php?id=5493" target="_blank"><img src="images/201310/thumb_img/5493_thumb_G_1381704996667.jpg" alt="甘源牌杂锦果仁1袋15g" class="goodsimg"></a><br>
+						  <p><a href="goods.php?id=5493" target="_blank" title="甘源牌杂锦果仁1袋15g">甘源牌杂锦果仁1袋15g</a></p>
+						  <font class="market_s">￥0.55</font>
+						  <font class="shop_s">￥0.50</font><br>
+						    <a href="javascript:collect(5493);" class="f7">&nbsp;收藏夹&nbsp;</a>
+						    <a href="javascript:addToCart(5493)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+						    
+						  </div>
+						  <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+						    <a href="goods.php?id=5494" target="_blank"><img src="images/201310/thumb_img/5494_thumb_G_1381704978423.jpg" alt="甘源牌蟹黄味瓜子仁10g" class="goodsimg"></a><br>
+							<p><a href="goods.php?id=5494" target="_blank" title="甘源牌蟹黄味瓜子仁10g">甘源牌蟹黄味瓜子仁10g</a></p>
+							<font class="market_s">￥0.55</font>
+							<font class="shop_s">￥0.50</font><br>
+							  <a href="javascript:collect(5494);" class="f7">&nbsp;收藏夹&nbsp;</a>
+							  <a href="javascript:addToCart(5494)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+							  
+							</div>
+							<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+							  <a href="goods.php?id=5495" target="_blank"><img src="images/201310/thumb_img/5495_thumb_G_1381704963920.jpg" alt="甘源牌海苔味蚕豆1袋14g" class="goodsimg"></a><br>
+							      <p><a href="goods.php?id=5495" target="_blank" title="甘源牌海苔味蚕豆1袋14g">甘源牌海苔味蚕豆1袋14g</a></p>
+							      <font class="market_s">￥0.50</font>
+							      <font class="shop_s">￥0.50</font><br>
+								<a href="javascript:collect(5495);" class="f7">&nbsp;收藏夹&nbsp;</a>
+								<a href="javascript:addToCart(5495)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+								
+							      </div>
+							      <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+								<a href="goods.php?id=5496" target="_blank"><img src="images/201310/thumb_img/5496_thumb_G_1381704945133.jpg" alt="甘源牌蟹黄味蚕豆1袋14g" class="goodsimg"></a><br>
+								    <p><a href="goods.php?id=5496" target="_blank" title="甘源牌蟹黄味蚕豆1袋14g">甘源牌蟹黄味蚕豆1袋14g</a></p>
+								    <font class="market_s">￥0.55</font>
+								    <font class="shop_s">￥0.50</font><br>
+								      <a href="javascript:collect(5496);" class="f7">&nbsp;收藏夹&nbsp;</a>
+								      <a href="javascript:addToCart(5496)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+								      
+								    </div>
+								    <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+								      <a href="goods.php?id=5497" target="_blank"><img src="images/201310/thumb_img/5497_thumb_G_1381704925324.jpg" alt="甘源牌美国青豌豆1袋10g" class="goodsimg"></a><br>
+									  <p><a href="goods.php?id=5497" target="_blank" title="甘源牌美国青豌豆1袋10g">甘源牌美国青豌豆1袋10g</a></p>
+									  <font class="market_s">￥0.55</font>
+									  <font class="shop_s">￥0.50</font><br>
+									    <a href="javascript:collect(5497);" class="f7">&nbsp;收藏夹&nbsp;</a>
+									    <a href="javascript:addToCart(5497)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+									    
+									  </div>
+									  <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+									    <a href="goods.php?id=5498" target="_blank"><img src="images/201310/thumb_img/5498_thumb_G_1381704909441.jpg" alt="菲尚喜营养麦片巧克力10g" class="goodsimg"></a><br>
+										<p><a href="goods.php?id=5498" target="_blank" title="菲尚喜营养麦片巧克力10g">菲尚喜营养麦片巧克力10g</a></p>
+										<font class="market_s">￥0.55</font>
+										<font class="shop_s">￥0.50</font><br>
+										  <a href="javascript:collect(5498);" class="f7">&nbsp;收藏夹&nbsp;</a>
+										  <a href="javascript:addToCart(5498)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+										  
+										</div>
+										<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+										  <a href="goods.php?id=5568" target="_blank"><img src="images/201310/thumb_img/5568_thumb_G_1382916164285.jpg" alt="马来西亚特鲜炼奶起士饼22g" class="goodsimg"></a><br>
+										      <p><a href="goods.php?id=5568" target="_blank" title="马来西亚特鲜炼奶起士饼22g">马来西亚特鲜炼奶起士饼22g</a></p>
+										      <font class="market_s">￥0.55</font>
+										      <font class="shop_s">￥0.50</font><br>
+											<a href="javascript:collect(5568);" class="f7">&nbsp;收藏夹&nbsp;</a>
+											<a href="javascript:addToCart(5568)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+											
+										      </div>
+										      <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+											<a href="goods.php?id=5579" target="_blank"><img src="images/201310/thumb_img/5579_thumb_G_1382920509156.jpg" alt="甘源牌青豌豆蟹黄味1袋" class="goodsimg"></a><br>
+											    <p><a href="goods.php?id=5579" target="_blank" title="甘源牌青豌豆蟹黄味1袋">甘源牌青豌豆蟹黄味1袋</a></p>
+											    <font class="market_s">￥0.55</font>
+											    <font class="shop_s">￥0.50</font><br>
+											      <a href="javascript:collect(5579);" class="f7">&nbsp;收藏夹&nbsp;</a>
+											      <a href="javascript:addToCart(5579)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+											      
+											    </div>
+											    <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+											      <a href="goods.php?id=5580" target="_blank"><img src="images/201310/thumb_img/5580_thumb_G_1382920662717.jpg" alt="甘源牌青豌豆蒜香味1袋" class="goodsimg"></a><br>
+												  <p><a href="goods.php?id=5580" target="_blank" title="甘源牌青豌豆蒜香味1袋">甘源牌青豌豆蒜香味1袋</a></p>
+												  <font class="market_s">￥0.55</font>
+												  <font class="shop_s">￥0.50</font><br>
+												    <a href="javascript:collect(5580);" class="f7">&nbsp;收藏夹&nbsp;</a>
+												    <a href="javascript:addToCart(5580)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+												    
+												  </div>
+												  <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+												    <a href="goods.php?id=5500" target="_blank"><img src="images/201310/thumb_img/5500_thumb_G_1381704875343.jpg" alt="森度千叶脱水芝士味蛋糕1个10g" class="goodsimg"></a><br>
+													<p><a href="goods.php?id=5500" target="_blank" title="森度千叶脱水芝士味蛋糕1个10g">森度千叶脱水芝士味蛋糕1个10g</a></p>
+													<font class="market_s">￥1.10</font>
+													<font class="shop_s">￥1.00</font><br>
+													  <a href="javascript:collect(5500);" class="f7">&nbsp;收藏夹&nbsp;</a>
+													  <a href="javascript:addToCart(5500)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+													  
+													</div>
+													<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+													  <a href="goods.php?id=5502" target="_blank"><img src="images/201310/thumb_img/5502_thumb_G_1381704836097.jpg" alt="苏微锅巴美式茄汁味1袋20g" class="goodsimg"></a><br>
+													      <p><a href="goods.php?id=5502" target="_blank" title="苏微锅巴美式茄汁味1袋20g">苏微锅巴美式茄汁味1袋20g</a></p>
+													      <font class="market_s">￥1.10</font>
+													      <font class="shop_s">￥1.00</font><br>
+														<a href="javascript:collect(5502);" class="f7">&nbsp;收藏夹&nbsp;</a>
+														<a href="javascript:addToCart(5502)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+														
+													      </div>
+													      <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+														<a href="goods.php?id=5566" target="_blank"><img src="images/201310/thumb_img/5566_thumb_G_1382907468225.jpg" alt="苏微锅巴日式牛排味1袋" class="goodsimg"></a><br>
+														    <p><a href="goods.php?id=5566" target="_blank" title="苏微锅巴日式牛排味1袋">苏微锅巴日式牛排味1袋</a></p>
+														    <font class="market_s">￥1.10</font>
+														    <font class="shop_s">￥1.00</font><br>
+														      <a href="javascript:collect(5566);" class="f7">&nbsp;收藏夹&nbsp;</a>
+														      <a href="javascript:addToCart(5566)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+														      
+														    </div>
+														    <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+														      <a href="goods.php?id=5570" target="_blank"><img src="images/201310/thumb_img/5570_thumb_G_1382916951909.jpg" alt="韩国进口海飘牌低盐海苔2g" class="goodsimg"></a><br>
+															  <p><a href="goods.php?id=5570" target="_blank" title="韩国进口海飘牌低盐海苔2g">韩国进口海飘牌低盐海苔2g</a></p>
+															  <font class="market_s">￥1.10</font>
+															  <font class="shop_s">￥1.00</font><br>
+															    <a href="javascript:collect(5570);" class="f7">&nbsp;收藏夹&nbsp;</a>
+															    <a href="javascript:addToCart(5570)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+															    
+															  </div>
+															  <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+															    <a href="goods.php?id=5572" target="_blank"><img src="images/201310/thumb_img/5572_thumb_G_1382917137407.jpg" alt="马来西亚进口彩马公主饼干25g" class="goodsimg"></a><br>
+																<p><a href="goods.php?id=5572" target="_blank" title="马来西亚进口彩马公主饼干25g">马来西亚进口彩马公主饼干25g</a></p>
+																<font class="market_s">￥1.10</font>
+																<font class="shop_s">￥1.00</font><br>
+																  <a href="javascript:collect(5572);" class="f7">&nbsp;收藏夹&nbsp;</a>
+																  <a href="javascript:addToCart(5572)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+																  
+																</div>
+																<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+																  <a href="goods.php?id=5573" target="_blank"><img src="images/201310/thumb_img/5573_thumb_G_1382917217727.jpg" alt="台湾北田能量99棒— 10g" class="goodsimg"></a><br>
+																      <p><a href="goods.php?id=5573" target="_blank" title="台湾北田能量99棒— 10g">台湾北田能量99棒— 10g</a></p>
+																      <font class="market_s">￥1.10</font>
+																      <font class="shop_s">￥1.00</font><br>
+																	<a href="javascript:collect(5573);" class="f7">&nbsp;收藏夹&nbsp;</a>
+																	<a href="javascript:addToCart(5573)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+																	
+																      </div>
+																      <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+																	<a href="goods.php?id=5574" target="_blank"><img src="images/201310/thumb_img/5574_thumb_G_1382917316718.jpg" alt="马来西亚愤怒的小鸟棉花糖11g" class="goodsimg"></a><br>
+																	    <p><a href="goods.php?id=5574" target="_blank" title="马来西亚愤怒的小鸟棉花糖11g">马来西亚愤怒的小鸟棉花糖11g</a></p>
+																	    <font class="market_s">￥1.10</font>
+																	    <font class="shop_s">￥1.00</font><br>
+																	      <a href="javascript:collect(5574);" class="f7">&nbsp;收藏夹&nbsp;</a>
+																	      <a href="javascript:addToCart(5574)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+																	      
+																	    </div>
+																	    <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+																	      <a href="goods.php?id=5576" target="_blank"><img src="images/201310/thumb_img/5576_thumb_G_1382917911939.jpg" alt="台湾素手浣花黑糖棒棒糖14g" class="goodsimg"></a><br>
+																		  <p><a href="goods.php?id=5576" target="_blank" title="台湾素手浣花黑糖棒棒糖14g">台湾素手浣花黑糖棒棒糖14g</a></p>
+																		  <font class="market_s">￥1.10</font>
+																		  <font class="shop_s">￥1.00</font><br>
+																		    <a href="javascript:collect(5576);" class="f7">&nbsp;收藏夹&nbsp;</a>
+																		    <a href="javascript:addToCart(5576)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+																		    
+																		  </div>
+																		  <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+																		    <a href="goods.php?id=5581" target="_blank"><img src="images/201310/thumb_img/5581_thumb_G_1382920909969.jpg" alt="森度脱水蛋糕牛奶味1袋" class="goodsimg"></a><br>
+																			<p><a href="goods.php?id=5581" target="_blank" title="森度脱水蛋糕牛奶味1袋">森度脱水蛋糕牛奶味1袋</a></p>
+																			<font class="market_s">￥1.10</font>
+																			<font class="shop_s">￥1.00</font><br>
+																			  <a href="javascript:collect(5581);" class="f7">&nbsp;收藏夹&nbsp;</a>
+																			  <a href="javascript:addToCart(5581)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+																			  
+																			</div>
+																			<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+																			  <a href="goods.php?id=5543" target="_blank"><img src="images/201310/thumb_img/5543_thumb_G_1383069763173.png" alt="七宝一丁鸡汁伊面—— 60g" class="goodsimg"></a><br>
+																			      <p><a href="goods.php?id=5543" target="_blank" title="七宝一丁鸡汁伊面—— 60g">七宝一丁鸡汁伊面—— 60g</a></p>
+																			      <font class="market_s">￥2.00</font>
+																			      <font class="shop_s">￥1.50</font><br>
+																				<a href="javascript:collect(5543);" class="f7">&nbsp;收藏夹&nbsp;</a>
+																				<a href="javascript:addToCart(5543)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+																				
+																			      </div>
+																			      <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+																				<a href="goods.php?id=5575" target="_blank"><img src="images/201310/thumb_img/5575_thumb_G_1382917396457.jpg" alt="姚太太笋丝青豆———41.6g" class="goodsimg"></a><br>
+																				    <p><a href="goods.php?id=5575" target="_blank" title="姚太太笋丝青豆———41.6g">姚太太笋丝青豆———41.6g</a></p>
+																				    <font class="market_s">￥1.65</font>
+																				    <font class="shop_s">￥1.50</font><br>
+																				      <a href="javascript:collect(5575);" class="f7">&nbsp;收藏夹&nbsp;</a>
+																				      <a href="javascript:addToCart(5575)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+																				      
+																				    </div>
+																				    <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+																				      <a href="goods.php?id=873" target="_blank"><img src="images/201212/thumb_img/873_thumb_G_1355863814993.jpg" alt="徐福记迷你包沙琪玛(蛋黄)32g" class="goodsimg"></a><br>
+																					  <p><a href="goods.php?id=873" target="_blank" title="徐福记迷你包沙琪玛(蛋黄)32g">徐福记迷你包沙琪玛(蛋黄)32g</a></p>
+																					  <font class="market_s">￥1.76</font>
+																					  <font class="shop_s">￥1.60</font><br>
+																					    <a href="javascript:collect(873);" class="f7">&nbsp;收藏夹&nbsp;</a>
+																					    <a href="javascript:addToCart(873)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+																					    
+																					  </div>
+																					  <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+																					    <a href="goods.php?id=874" target="_blank"><img src="images/201209/thumb_img/874_thumb_G_1348256997253.jpg" alt="徐福记迷你包沙琪玛(松软蛋酥)32g" class="goodsimg"></a><br>
+																						<p><a href="goods.php?id=874" target="_blank" title="徐福记迷你包沙琪玛(松软蛋酥)32g">徐福记迷你包沙琪玛(松软蛋酥)32g</a></p>
+																						<font class="market_s">￥1.76</font>
+																						<font class="shop_s">￥1.60</font><br>
+																						  <a href="javascript:collect(874);" class="f7">&nbsp;收藏夹&nbsp;</a>
+																						  <a href="javascript:addToCart(874)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+																						  
+																						</div>
+																						<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+																						  <a href="goods.php?id=8991" target="_blank"><img src="images/201401/thumb_img/8991_thumb_G_1390777642732.jpg" alt="绿箭柠檬草薄荷味口香糖13.5g5片装" class="goodsimg"></a><br>
+																						      <p><a href="goods.php?id=8991" target="_blank" title="绿箭柠檬草薄荷味口香糖13.5g5片装">绿箭柠檬草薄荷味口香糖13.5g5片装</a></p>
+																						      <font class="market_s">￥1.76</font>
+																						      <font class="shop_s">￥1.60</font><br>
+																							<a href="javascript:collect(8991);" class="f7">&nbsp;收藏夹&nbsp;</a>
+																							<a href="javascript:addToCart(8991)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+																							
+																						      </div>
+																						    </div>
+																						  </div>
+																						</form>
+																						
+																					      </div>
+																					    </div>
+																					    <div class="blank5"></div>
+																					    <script type="Text/Javascript" language="JavaScript">
+																					      <!--
+																						  function selectPage(sel)
+																						  {
+																						  sel.form.submit();
+																						  }
+																						  //-->
+																					    </script>
+																					    
+																					    <form name="selectPageForm" action="/category.php" method="get">
+																					      <div id="pager">
+																						总计 917 个记录，共 39 页。 <span> <a href="category.php?id=695&amp;price_min=0&amp;price_max=0&amp;page=1&amp;sort=shop_price&amp;order=ASC">第一页</a> <a href="category.php?id=695&amp;price_min=0&amp;price_max=0&amp;page=1&amp;sort=shop_price&amp;order=ASC">上一页</a> <a href="category.php?id=695&amp;price_min=0&amp;price_max=0&amp;page=2&amp;sort=shop_price&amp;order=ASC">下一页</a> <a href="category.php?id=695&amp;price_min=0&amp;price_max=0&amp;page=39&amp;sort=shop_price&amp;order=ASC">最末页</a> </span>
+																						<input type="hidden" name="category" value="695">
+																						  <input type="hidden" name="keywords" value="">
+																						    <input type="hidden" name="sort" value="shop_price">
+																						      <input type="hidden" name="order" value="ASC">
+																							<input type="hidden" name="cat" value="695">
+																							  <input type="hidden" name="brand" value="0">
+																							    <input type="hidden" name="price_min" value="0">
+																							      <input type="hidden" name="price_max" value="0">
+																								<input type="hidden" name="filter_attr" value="0">
+																								  <input type="hidden" name="display" value="grid">
+																								    <select name="page" id="page" onchange="selectPage(this)">
+																								      <option value="1" selected="">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option><option value="33">33</option><option value="34">34</option><option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option>    </select>
+																								  </div>
+																								</form>
+																								<script type="Text/Javascript" language="JavaScript">
+																								  <!--
+																								      function selectPage(sel)
+																								      {
+																								      sel.form.submit();
+																								      }
+																								      //-->
+																								</script>
+																							      </div>  
+																							      
+																							    </div>
+																							    {% for item in items %}
+																							    <li> {{ item.name }} </li>
+																							    {% empty %}
+																							    {% endfor %}
+																							  </body>
+																							</html>

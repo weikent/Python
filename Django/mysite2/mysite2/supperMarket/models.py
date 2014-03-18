@@ -13,7 +13,7 @@ class MainSort(models.Model):
 class SubSort(models.Model):
     """
     """
-    
+
     name = models.CharField(max_length = 30)
     mainSort = models.ForeignKey(MainSort)
     sortby = models.IntegerField()
@@ -53,6 +53,68 @@ class ImagePath(models.Model):
         - `self`:
         """
         return self.name
+
+
+class Brand(models.Model):
+    """
+    """
+    name = models.CharField(max_length = 30)
+    sort = models.ForeignKey(SubSort)
+
+    def __unicode__(self):
+        """
+        
+        Arguments:
+        - `self`:
+        """
+        return self.name
+
+class Kind(models.Model):
+    """
+    """
+    name = models.CharField(max_length = 30)
+    sort = models.ForeignKey(SubSort)
+
+    def __unicode__(self):
+        """
+        
+        Arguments:
+        - `self`:
+        """
+        return self.name
+
+class Item(models.Model):
+    """
+    """
+    name = models.CharField(max_length = 100)
+    marketPrice = models.IntegerField()
+    shorPrice = models.IntegerField()
+    imagePath = models.CharField(max_length = 500)
+    number = models.CharField(max_length = 20)
+    stock = models.IntegerField()
+    description = models.CharField(max_length = 2000)
+    brand = models.ForeignKey(Brand)
+    kind = models.ForeignKey(Kind)
+    sort = models.ForeignKey(SubSort)
+    def __unicode__(self):
+        """
+        
+        Arguments:
+        - `self`:
+        """
+        return self.name
+
+
+# class Commentary(models.Model):
+#     """
+#     """
+
+#     content = models.CharField(max_length = 500)
+#     member = 
+        
+
+    
+    
 
 
 # Create your models here.

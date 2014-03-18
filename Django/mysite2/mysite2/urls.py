@@ -7,6 +7,7 @@ from mysite2.views import book_list
 from mysite2.views import display_meta
 from mysite2.views import two_offset
 from mysite2.contact.views import contact
+from mysite2.views import subSort
 
 # from books.views import search_form
 from mysite2.books import views
@@ -30,6 +31,7 @@ urlpatterns = patterns('',
 
     url(r'^hello/$', hello),
     url(r'^$', current_datetime),
+    url(r'^subSort/$', subSort),
     url(r'^time/plus/(\d{1,2})/$', hours_ahead),
     url(r'^time/plus/p1(\d{1,2})p2(\d{1,3})/$', two_offset),
     url(r'^test/person/$', test_method_call),

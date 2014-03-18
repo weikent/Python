@@ -32,6 +32,7 @@ def hello(request):
 
 
 import datetime
+
 def current_datetime(request):
     """
     
@@ -59,7 +60,28 @@ def current_datetime(request):
         if item.name == 'seasonings':
             seasonings = item
 
-    return render_to_response("current_time/current_time.html", {"current_time": current_time, 'title':'current_time', 'mainSort': mainSort, 'index': index, 'liangyou': liangyou, 'seasonings' : seasonings})
+    return render_to_response("superMarket/main.html", {"current_time": current_time, 'title':'current_time', 'mainSort': mainSort, 'index': index, 'liangyou': liangyou, 'seasonings' : seasonings})
+
+
+def subSort(request):
+    """
+    
+    Arguments:
+    - `request`:
+    """
+
+    brand = views.brand()
+    kind = views.kind()
+
+    item = []
+    if 'sort' in request.GET:
+        sort = request.GET['sort']
+        if not sort:
+            return render_to_response("404.html")
+        else:
+            item = views.item(100)
+            return render_to_response("superMarket/subSort.html", {'title' : 'subSort', 'items' : item})
+    return render_to_response("superMarket/subSort.html", {'title' : 'subSort', 'items' : item})
 
 from django.http import Http404
 def hours_ahead(request, offset):
