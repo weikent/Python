@@ -13,10 +13,15 @@ def mainSort():
     Arguments:
     - `self`:
     """
-    mainSort = MainSort.objects.all()
+    mainSort = MainSort.objects.filter(id__lte = 15)  # "id__lte = 15 " 等于 "where id <= 15"
     return mainSort
 
 
+def subSort():
+    """
+    """
+    subSort = SubSort.objects.all()
+    return subSort
 
 
 def imagePath():
@@ -25,7 +30,7 @@ def imagePath():
     Arguments:
     - `self`:
     """
-    imagePath = ImagePath.objects.all()
+    imagePath = ImagePath.objects.order_by('id').all()
     return imagePath
 
 

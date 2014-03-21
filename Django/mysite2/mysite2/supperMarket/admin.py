@@ -6,7 +6,7 @@ from mysite2.supperMarket.models import MainSort, SubSort, ImagePath, Item, Bran
 class MainSortAdmin(admin.ModelAdmin):
     """
     """
-    list_display = ('name', 'sortby')
+    list_display = ('name', 'sortby', 'linkURL', 'onClick', 'devId', 'devClass')
         
 class SubSortAdmin(admin.ModelAdmin):
     """
@@ -16,7 +16,7 @@ class SubSortAdmin(admin.ModelAdmin):
 class ImagePathAdmin(admin.ModelAdmin):
     """
     """
-    list_display = ('name', 'image1','image2','image3','image4','image5','image6','image7','image8','image9','image10','image11','image12','image13','image14','image15')
+    list_display = ('name', 'sortby', 'mainSort','image1','image2','image3','image4','image5','image6','image7','image8','image9','image10','image11','image12','image13','image14','image15','link1','link2','link3','link4','link5','link6','link7','link8','link9','link10','link11','link12','link13','link14','link15')
 
 
 class BrandAdmin(admin.ModelAdmin):

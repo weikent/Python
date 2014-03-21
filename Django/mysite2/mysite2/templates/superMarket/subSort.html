@@ -2,7 +2,6 @@
 <body style="text-align:center">
   {% include 'body_master.html' %}
   <div class="block clearfix">
-    
     <div class="AreaL">
       
       <script type="text/javascript">
@@ -75,11 +74,13 @@
 					    menu.init();
 					    }
 					    </script>
+
+
       <div class="menu" id="menu">
 	<ul>
-	  <li num="0"><a href="category.php?id=695" class="h" onclick="expandIt('cattree695');">休闲食品</a>
+	  <li num="1"><a href="category.php?id=695" class="h" onclick="expandIt('cattree695');">休闲食品</a>
             <div id="cattree695" style="display: block;">
-              <p> <a href="category.php?id=825">进口食品</a> </p> 
+              <p> <a href="category.php?"{{ mainSortItem.name }} >进口食品</a> </p> 
               
               <p> <a href="category.php?id=826">办公室零食</a> </p> 
               
@@ -110,7 +111,7 @@
               
             </div>
           </li>
-          <li num="1"><a href="category.php?id=707" class="h" onclick="expandIt('cattree707');">饮料</a>
+          <li num="2"><a href="category.php?id=707" class="h" onclick="expandIt('cattree707');">饮料</a>
             <div id="cattree707" style="display: none;">
               <p> <a href="category.php?id=708">水</a> </p> 
               
@@ -493,6 +494,7 @@
       
       
     </div>
+
     
     
     <div class="AreaR">
@@ -661,293 +663,292 @@
 	      <a name="goods_list"></a>显示方式：
 	      &nbsp;&nbsp; 
 	      <a href="category.php?category=695&amp;display=grid&amp;brand=0&amp;price_min=0&amp;price_max=0&amp;filter_attr=0&amp;page=1&amp;sort=shop_price&amp;order=DESC#goods_list"><img src="themes/123/images/shop_price_ASC.gif" alt="按价格排序"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="category.php?category=695&amp;display=grid&amp;brand=0&amp;price_min=0&amp;price_max=0&amp;filter_attr=0&amp;page=1&amp;sort=goods_weight&amp;order=ASC#goods_list"><img src="themes/123/images/goods_weight_default.gif" alt="重量"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		  <!--
-		      <a href="javascript:;" onClick="javascript:display_mode('list')"><img src="themes/123/images/display_mode_list.gif" alt=""></a>
-			<a href="javascript:;" onClick="javascript:display_mode('grid')"><img src="themes/123/images/display_mode_grid_act.gif" alt=""></a>
-			  <a href="javascript:;" onClick="javascript:display_mode('text')"><img src="themes/123/images/display_mode_text.gif" alt=""></a>&nbsp;&nbsp;
-			    -->  
+	      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	      <!--
+		  <a href="javascript:;" onClick="javascript:display_mode('list')"><img src="themes/123/images/display_mode_list.gif" alt=""></a>
+		  <a href="javascript:;" onClick="javascript:display_mode('grid')"><img src="themes/123/images/display_mode_grid_act.gif" alt=""></a>
+		  <a href="javascript:;" onClick="javascript:display_mode('text')"><img src="themes/123/images/display_mode_text.gif" alt=""></a>&nbsp;&nbsp;
+		  -->  
+	      
+	      <input type="hidden" name="category" value="695">
+	      <input type="hidden" name="display" value="grid" id="display">
+	      <input type="hidden" name="brand" value="0">
+	      <input type="hidden" name="price_min" value="0">
+	      <input type="hidden" name="price_max" value="0">
+	      <input type="hidden" name="filter_attr" value="0">
+	      <input type="hidden" name="page" value="1">
+	      <input type="hidden" name="sort" value="shop_price">
+	      <input type="hidden" name="order" value="ASC">
+	    </form>
+	  </h3>
+	  <form name="compareForm" action="compare.php" method="post" onsubmit="return compareGoods(this);">
+	    
+	    
+	    
+	    <div class="centerPadd">
+	      <div class="clearfix goodsBox" style="border:none;width:auto;">
+		<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+		  <a href="goods.php?id=5492" target="_blank"><img src="images/201310/thumb_img/5492_thumb_G_1381705012012.jpg" alt="甘源牌蟹黄味花生1袋10g" class="goodsimg"></a><br>
+		  <p><a href="goods.php?id=5492" target="_blank" title="甘源牌蟹黄味花生1袋10g">甘源牌蟹黄味花生1袋10g</a></p>
+		  <font class="market_s">￥0.55</font>
+		  <font class="shop_s">￥0.50</font><br>
+		  <a href="javascript:collect(5492);" class="f7">&nbsp;收藏夹&nbsp;</a>
+		  <a href="javascript:addToCart(5492)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
 		  
-		  <input type="hidden" name="category" value="695">
-		    <input type="hidden" name="display" value="grid" id="display">
-		      <input type="hidden" name="brand" value="0">
-			<input type="hidden" name="price_min" value="0">
-			  <input type="hidden" name="price_max" value="0">
-			    <input type="hidden" name="filter_attr" value="0">
-			      <input type="hidden" name="page" value="1">
-				<input type="hidden" name="sort" value="shop_price">
-				  <input type="hidden" name="order" value="ASC">
-				  </form>
-				</h3>
-				<form name="compareForm" action="compare.php" method="post" onsubmit="return compareGoods(this);">
-				  
-				  
-				  
-				  <div class="centerPadd">
-				    <div class="clearfix goodsBox" style="border:none;width:auto;">
-				      <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
-					<a href="goods.php?id=5492" target="_blank"><img src="images/201310/thumb_img/5492_thumb_G_1381705012012.jpg" alt="甘源牌蟹黄味花生1袋10g" class="goodsimg"></a><br>
-					    <p><a href="goods.php?id=5492" target="_blank" title="甘源牌蟹黄味花生1袋10g">甘源牌蟹黄味花生1袋10g</a></p>
-					    <font class="market_s">￥0.55</font>
-					    <font class="shop_s">￥0.50</font><br>
-					      <a href="javascript:collect(5492);" class="f7">&nbsp;收藏夹&nbsp;</a>
-					      <a href="javascript:addToCart(5492)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
-					      
-					    </div>
-					    <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
-					      <a href="goods.php?id=5493" target="_blank"><img src="images/201310/thumb_img/5493_thumb_G_1381704996667.jpg" alt="甘源牌杂锦果仁1袋15g" class="goodsimg"></a><br>
-						  <p><a href="goods.php?id=5493" target="_blank" title="甘源牌杂锦果仁1袋15g">甘源牌杂锦果仁1袋15g</a></p>
-						  <font class="market_s">￥0.55</font>
-						  <font class="shop_s">￥0.50</font><br>
-						    <a href="javascript:collect(5493);" class="f7">&nbsp;收藏夹&nbsp;</a>
-						    <a href="javascript:addToCart(5493)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
-						    
-						  </div>
-						  <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
-						    <a href="goods.php?id=5494" target="_blank"><img src="images/201310/thumb_img/5494_thumb_G_1381704978423.jpg" alt="甘源牌蟹黄味瓜子仁10g" class="goodsimg"></a><br>
-							<p><a href="goods.php?id=5494" target="_blank" title="甘源牌蟹黄味瓜子仁10g">甘源牌蟹黄味瓜子仁10g</a></p>
-							<font class="market_s">￥0.55</font>
-							<font class="shop_s">￥0.50</font><br>
-							  <a href="javascript:collect(5494);" class="f7">&nbsp;收藏夹&nbsp;</a>
-							  <a href="javascript:addToCart(5494)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
-							  
-							</div>
-							<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
-							  <a href="goods.php?id=5495" target="_blank"><img src="images/201310/thumb_img/5495_thumb_G_1381704963920.jpg" alt="甘源牌海苔味蚕豆1袋14g" class="goodsimg"></a><br>
-							      <p><a href="goods.php?id=5495" target="_blank" title="甘源牌海苔味蚕豆1袋14g">甘源牌海苔味蚕豆1袋14g</a></p>
-							      <font class="market_s">￥0.50</font>
-							      <font class="shop_s">￥0.50</font><br>
-								<a href="javascript:collect(5495);" class="f7">&nbsp;收藏夹&nbsp;</a>
-								<a href="javascript:addToCart(5495)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
-								
-							      </div>
-							      <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
-								<a href="goods.php?id=5496" target="_blank"><img src="images/201310/thumb_img/5496_thumb_G_1381704945133.jpg" alt="甘源牌蟹黄味蚕豆1袋14g" class="goodsimg"></a><br>
-								    <p><a href="goods.php?id=5496" target="_blank" title="甘源牌蟹黄味蚕豆1袋14g">甘源牌蟹黄味蚕豆1袋14g</a></p>
-								    <font class="market_s">￥0.55</font>
-								    <font class="shop_s">￥0.50</font><br>
-								      <a href="javascript:collect(5496);" class="f7">&nbsp;收藏夹&nbsp;</a>
-								      <a href="javascript:addToCart(5496)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
-								      
-								    </div>
-								    <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
-								      <a href="goods.php?id=5497" target="_blank"><img src="images/201310/thumb_img/5497_thumb_G_1381704925324.jpg" alt="甘源牌美国青豌豆1袋10g" class="goodsimg"></a><br>
-									  <p><a href="goods.php?id=5497" target="_blank" title="甘源牌美国青豌豆1袋10g">甘源牌美国青豌豆1袋10g</a></p>
-									  <font class="market_s">￥0.55</font>
-									  <font class="shop_s">￥0.50</font><br>
-									    <a href="javascript:collect(5497);" class="f7">&nbsp;收藏夹&nbsp;</a>
-									    <a href="javascript:addToCart(5497)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
-									    
-									  </div>
-									  <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
-									    <a href="goods.php?id=5498" target="_blank"><img src="images/201310/thumb_img/5498_thumb_G_1381704909441.jpg" alt="菲尚喜营养麦片巧克力10g" class="goodsimg"></a><br>
-										<p><a href="goods.php?id=5498" target="_blank" title="菲尚喜营养麦片巧克力10g">菲尚喜营养麦片巧克力10g</a></p>
-										<font class="market_s">￥0.55</font>
-										<font class="shop_s">￥0.50</font><br>
-										  <a href="javascript:collect(5498);" class="f7">&nbsp;收藏夹&nbsp;</a>
-										  <a href="javascript:addToCart(5498)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
-										  
-										</div>
-										<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
-										  <a href="goods.php?id=5568" target="_blank"><img src="images/201310/thumb_img/5568_thumb_G_1382916164285.jpg" alt="马来西亚特鲜炼奶起士饼22g" class="goodsimg"></a><br>
-										      <p><a href="goods.php?id=5568" target="_blank" title="马来西亚特鲜炼奶起士饼22g">马来西亚特鲜炼奶起士饼22g</a></p>
-										      <font class="market_s">￥0.55</font>
-										      <font class="shop_s">￥0.50</font><br>
-											<a href="javascript:collect(5568);" class="f7">&nbsp;收藏夹&nbsp;</a>
-											<a href="javascript:addToCart(5568)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
-											
-										      </div>
-										      <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
-											<a href="goods.php?id=5579" target="_blank"><img src="images/201310/thumb_img/5579_thumb_G_1382920509156.jpg" alt="甘源牌青豌豆蟹黄味1袋" class="goodsimg"></a><br>
-											    <p><a href="goods.php?id=5579" target="_blank" title="甘源牌青豌豆蟹黄味1袋">甘源牌青豌豆蟹黄味1袋</a></p>
-											    <font class="market_s">￥0.55</font>
-											    <font class="shop_s">￥0.50</font><br>
-											      <a href="javascript:collect(5579);" class="f7">&nbsp;收藏夹&nbsp;</a>
-											      <a href="javascript:addToCart(5579)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
-											      
-											    </div>
-											    <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
-											      <a href="goods.php?id=5580" target="_blank"><img src="images/201310/thumb_img/5580_thumb_G_1382920662717.jpg" alt="甘源牌青豌豆蒜香味1袋" class="goodsimg"></a><br>
-												  <p><a href="goods.php?id=5580" target="_blank" title="甘源牌青豌豆蒜香味1袋">甘源牌青豌豆蒜香味1袋</a></p>
-												  <font class="market_s">￥0.55</font>
-												  <font class="shop_s">￥0.50</font><br>
-												    <a href="javascript:collect(5580);" class="f7">&nbsp;收藏夹&nbsp;</a>
-												    <a href="javascript:addToCart(5580)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
-												    
-												  </div>
-												  <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
-												    <a href="goods.php?id=5500" target="_blank"><img src="images/201310/thumb_img/5500_thumb_G_1381704875343.jpg" alt="森度千叶脱水芝士味蛋糕1个10g" class="goodsimg"></a><br>
-													<p><a href="goods.php?id=5500" target="_blank" title="森度千叶脱水芝士味蛋糕1个10g">森度千叶脱水芝士味蛋糕1个10g</a></p>
-													<font class="market_s">￥1.10</font>
-													<font class="shop_s">￥1.00</font><br>
-													  <a href="javascript:collect(5500);" class="f7">&nbsp;收藏夹&nbsp;</a>
-													  <a href="javascript:addToCart(5500)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
-													  
-													</div>
-													<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
-													  <a href="goods.php?id=5502" target="_blank"><img src="images/201310/thumb_img/5502_thumb_G_1381704836097.jpg" alt="苏微锅巴美式茄汁味1袋20g" class="goodsimg"></a><br>
-													      <p><a href="goods.php?id=5502" target="_blank" title="苏微锅巴美式茄汁味1袋20g">苏微锅巴美式茄汁味1袋20g</a></p>
-													      <font class="market_s">￥1.10</font>
-													      <font class="shop_s">￥1.00</font><br>
-														<a href="javascript:collect(5502);" class="f7">&nbsp;收藏夹&nbsp;</a>
-														<a href="javascript:addToCart(5502)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
-														
-													      </div>
-													      <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
-														<a href="goods.php?id=5566" target="_blank"><img src="images/201310/thumb_img/5566_thumb_G_1382907468225.jpg" alt="苏微锅巴日式牛排味1袋" class="goodsimg"></a><br>
-														    <p><a href="goods.php?id=5566" target="_blank" title="苏微锅巴日式牛排味1袋">苏微锅巴日式牛排味1袋</a></p>
-														    <font class="market_s">￥1.10</font>
-														    <font class="shop_s">￥1.00</font><br>
-														      <a href="javascript:collect(5566);" class="f7">&nbsp;收藏夹&nbsp;</a>
-														      <a href="javascript:addToCart(5566)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
-														      
-														    </div>
-														    <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
-														      <a href="goods.php?id=5570" target="_blank"><img src="images/201310/thumb_img/5570_thumb_G_1382916951909.jpg" alt="韩国进口海飘牌低盐海苔2g" class="goodsimg"></a><br>
-															  <p><a href="goods.php?id=5570" target="_blank" title="韩国进口海飘牌低盐海苔2g">韩国进口海飘牌低盐海苔2g</a></p>
-															  <font class="market_s">￥1.10</font>
-															  <font class="shop_s">￥1.00</font><br>
-															    <a href="javascript:collect(5570);" class="f7">&nbsp;收藏夹&nbsp;</a>
-															    <a href="javascript:addToCart(5570)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
-															    
-															  </div>
-															  <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
-															    <a href="goods.php?id=5572" target="_blank"><img src="images/201310/thumb_img/5572_thumb_G_1382917137407.jpg" alt="马来西亚进口彩马公主饼干25g" class="goodsimg"></a><br>
-																<p><a href="goods.php?id=5572" target="_blank" title="马来西亚进口彩马公主饼干25g">马来西亚进口彩马公主饼干25g</a></p>
-																<font class="market_s">￥1.10</font>
-																<font class="shop_s">￥1.00</font><br>
-																  <a href="javascript:collect(5572);" class="f7">&nbsp;收藏夹&nbsp;</a>
-																  <a href="javascript:addToCart(5572)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
-																  
-																</div>
-																<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
-																  <a href="goods.php?id=5573" target="_blank"><img src="images/201310/thumb_img/5573_thumb_G_1382917217727.jpg" alt="台湾北田能量99棒— 10g" class="goodsimg"></a><br>
-																      <p><a href="goods.php?id=5573" target="_blank" title="台湾北田能量99棒— 10g">台湾北田能量99棒— 10g</a></p>
-																      <font class="market_s">￥1.10</font>
-																      <font class="shop_s">￥1.00</font><br>
-																	<a href="javascript:collect(5573);" class="f7">&nbsp;收藏夹&nbsp;</a>
-																	<a href="javascript:addToCart(5573)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
-																	
-																      </div>
-																      <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
-																	<a href="goods.php?id=5574" target="_blank"><img src="images/201310/thumb_img/5574_thumb_G_1382917316718.jpg" alt="马来西亚愤怒的小鸟棉花糖11g" class="goodsimg"></a><br>
-																	    <p><a href="goods.php?id=5574" target="_blank" title="马来西亚愤怒的小鸟棉花糖11g">马来西亚愤怒的小鸟棉花糖11g</a></p>
-																	    <font class="market_s">￥1.10</font>
-																	    <font class="shop_s">￥1.00</font><br>
-																	      <a href="javascript:collect(5574);" class="f7">&nbsp;收藏夹&nbsp;</a>
-																	      <a href="javascript:addToCart(5574)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
-																	      
-																	    </div>
-																	    <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
-																	      <a href="goods.php?id=5576" target="_blank"><img src="images/201310/thumb_img/5576_thumb_G_1382917911939.jpg" alt="台湾素手浣花黑糖棒棒糖14g" class="goodsimg"></a><br>
-																		  <p><a href="goods.php?id=5576" target="_blank" title="台湾素手浣花黑糖棒棒糖14g">台湾素手浣花黑糖棒棒糖14g</a></p>
-																		  <font class="market_s">￥1.10</font>
-																		  <font class="shop_s">￥1.00</font><br>
-																		    <a href="javascript:collect(5576);" class="f7">&nbsp;收藏夹&nbsp;</a>
-																		    <a href="javascript:addToCart(5576)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
-																		    
-																		  </div>
-																		  <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
-																		    <a href="goods.php?id=5581" target="_blank"><img src="images/201310/thumb_img/5581_thumb_G_1382920909969.jpg" alt="森度脱水蛋糕牛奶味1袋" class="goodsimg"></a><br>
-																			<p><a href="goods.php?id=5581" target="_blank" title="森度脱水蛋糕牛奶味1袋">森度脱水蛋糕牛奶味1袋</a></p>
-																			<font class="market_s">￥1.10</font>
-																			<font class="shop_s">￥1.00</font><br>
-																			  <a href="javascript:collect(5581);" class="f7">&nbsp;收藏夹&nbsp;</a>
-																			  <a href="javascript:addToCart(5581)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
-																			  
-																			</div>
-																			<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
-																			  <a href="goods.php?id=5543" target="_blank"><img src="images/201310/thumb_img/5543_thumb_G_1383069763173.png" alt="七宝一丁鸡汁伊面—— 60g" class="goodsimg"></a><br>
-																			      <p><a href="goods.php?id=5543" target="_blank" title="七宝一丁鸡汁伊面—— 60g">七宝一丁鸡汁伊面—— 60g</a></p>
-																			      <font class="market_s">￥2.00</font>
-																			      <font class="shop_s">￥1.50</font><br>
-																				<a href="javascript:collect(5543);" class="f7">&nbsp;收藏夹&nbsp;</a>
-																				<a href="javascript:addToCart(5543)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
-																				
-																			      </div>
-																			      <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
-																				<a href="goods.php?id=5575" target="_blank"><img src="images/201310/thumb_img/5575_thumb_G_1382917396457.jpg" alt="姚太太笋丝青豆———41.6g" class="goodsimg"></a><br>
-																				    <p><a href="goods.php?id=5575" target="_blank" title="姚太太笋丝青豆———41.6g">姚太太笋丝青豆———41.6g</a></p>
-																				    <font class="market_s">￥1.65</font>
-																				    <font class="shop_s">￥1.50</font><br>
-																				      <a href="javascript:collect(5575);" class="f7">&nbsp;收藏夹&nbsp;</a>
-																				      <a href="javascript:addToCart(5575)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
-																				      
-																				    </div>
-																				    <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
-																				      <a href="goods.php?id=873" target="_blank"><img src="images/201212/thumb_img/873_thumb_G_1355863814993.jpg" alt="徐福记迷你包沙琪玛(蛋黄)32g" class="goodsimg"></a><br>
-																					  <p><a href="goods.php?id=873" target="_blank" title="徐福记迷你包沙琪玛(蛋黄)32g">徐福记迷你包沙琪玛(蛋黄)32g</a></p>
-																					  <font class="market_s">￥1.76</font>
-																					  <font class="shop_s">￥1.60</font><br>
-																					    <a href="javascript:collect(873);" class="f7">&nbsp;收藏夹&nbsp;</a>
-																					    <a href="javascript:addToCart(873)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
-																					    
-																					  </div>
-																					  <div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
-																					    <a href="goods.php?id=874" target="_blank"><img src="images/201209/thumb_img/874_thumb_G_1348256997253.jpg" alt="徐福记迷你包沙琪玛(松软蛋酥)32g" class="goodsimg"></a><br>
-																						<p><a href="goods.php?id=874" target="_blank" title="徐福记迷你包沙琪玛(松软蛋酥)32g">徐福记迷你包沙琪玛(松软蛋酥)32g</a></p>
-																						<font class="market_s">￥1.76</font>
-																						<font class="shop_s">￥1.60</font><br>
-																						  <a href="javascript:collect(874);" class="f7">&nbsp;收藏夹&nbsp;</a>
-																						  <a href="javascript:addToCart(874)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
-																						  
-																						</div>
-																						<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
-																						  <a href="goods.php?id=8991" target="_blank"><img src="images/201401/thumb_img/8991_thumb_G_1390777642732.jpg" alt="绿箭柠檬草薄荷味口香糖13.5g5片装" class="goodsimg"></a><br>
-																						      <p><a href="goods.php?id=8991" target="_blank" title="绿箭柠檬草薄荷味口香糖13.5g5片装">绿箭柠檬草薄荷味口香糖13.5g5片装</a></p>
-																						      <font class="market_s">￥1.76</font>
-																						      <font class="shop_s">￥1.60</font><br>
-																							<a href="javascript:collect(8991);" class="f7">&nbsp;收藏夹&nbsp;</a>
-																							<a href="javascript:addToCart(8991)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
-																							
-																						      </div>
-																						    </div>
-																						  </div>
-																						</form>
-																						
-																					      </div>
-																					    </div>
-																					    <div class="blank5"></div>
-																					    <script type="Text/Javascript" language="JavaScript">
-																					      <!--
-																						  function selectPage(sel)
-																						  {
-																						  sel.form.submit();
-																						  }
-																						  //-->
-																					    </script>
-																					    
-																					    <form name="selectPageForm" action="/category.php" method="get">
-																					      <div id="pager">
-																						总计 917 个记录，共 39 页。 <span> <a href="category.php?id=695&amp;price_min=0&amp;price_max=0&amp;page=1&amp;sort=shop_price&amp;order=ASC">第一页</a> <a href="category.php?id=695&amp;price_min=0&amp;price_max=0&amp;page=1&amp;sort=shop_price&amp;order=ASC">上一页</a> <a href="category.php?id=695&amp;price_min=0&amp;price_max=0&amp;page=2&amp;sort=shop_price&amp;order=ASC">下一页</a> <a href="category.php?id=695&amp;price_min=0&amp;price_max=0&amp;page=39&amp;sort=shop_price&amp;order=ASC">最末页</a> </span>
-																						<input type="hidden" name="category" value="695">
-																						  <input type="hidden" name="keywords" value="">
-																						    <input type="hidden" name="sort" value="shop_price">
-																						      <input type="hidden" name="order" value="ASC">
-																							<input type="hidden" name="cat" value="695">
-																							  <input type="hidden" name="brand" value="0">
-																							    <input type="hidden" name="price_min" value="0">
-																							      <input type="hidden" name="price_max" value="0">
-																								<input type="hidden" name="filter_attr" value="0">
-																								  <input type="hidden" name="display" value="grid">
-																								    <select name="page" id="page" onchange="selectPage(this)">
-																								      <option value="1" selected="">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option><option value="33">33</option><option value="34">34</option><option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option>    </select>
-																								  </div>
-																								</form>
-																								<script type="Text/Javascript" language="JavaScript">
-																								  <!--
-																								      function selectPage(sel)
-																								      {
-																								      sel.form.submit();
-																								      }
-																								      //-->
-																								</script>
-																							      </div>  
-																							      
-																							    </div>
-																							    {% for item in items %}
-																							    <li> {{ item.name }} </li>
-																							    {% empty %}
-																							    {% endfor %}
-																							  </body>
-																							</html>
+		</div>
+		<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+		  <a href="goods.php?id=5493" target="_blank"><img src="images/201310/thumb_img/5493_thumb_G_1381704996667.jpg" alt="甘源牌杂锦果仁1袋15g" class="goodsimg"></a><br>
+		  <p><a href="goods.php?id=5493" target="_blank" title="甘源牌杂锦果仁1袋15g">甘源牌杂锦果仁1袋15g</a></p>
+		  <font class="market_s">￥0.55</font>
+		  <font class="shop_s">￥0.50</font><br>
+		  <a href="javascript:collect(5493);" class="f7">&nbsp;收藏夹&nbsp;</a>
+		  <a href="javascript:addToCart(5493)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+		  
+		</div>
+		<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+		  <a href="goods.php?id=5494" target="_blank"><img src="images/201310/thumb_img/5494_thumb_G_1381704978423.jpg" alt="甘源牌蟹黄味瓜子仁10g" class="goodsimg"></a><br>
+		  <p><a href="goods.php?id=5494" target="_blank" title="甘源牌蟹黄味瓜子仁10g">甘源牌蟹黄味瓜子仁10g</a></p>
+		  <font class="market_s">￥0.55</font>
+		  <font class="shop_s">￥0.50</font><br>
+		  <a href="javascript:collect(5494);" class="f7">&nbsp;收藏夹&nbsp;</a>
+		  <a href="javascript:addToCart(5494)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+		  
+		</div>
+		<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+		  <a href="goods.php?id=5495" target="_blank"><img src="images/201310/thumb_img/5495_thumb_G_1381704963920.jpg" alt="甘源牌海苔味蚕豆1袋14g" class="goodsimg"></a><br>
+		  <p><a href="goods.php?id=5495" target="_blank" title="甘源牌海苔味蚕豆1袋14g">甘源牌海苔味蚕豆1袋14g</a></p>
+		  <font class="market_s">￥0.50</font>
+		  <font class="shop_s">￥0.50</font><br>
+		  <a href="javascript:collect(5495);" class="f7">&nbsp;收藏夹&nbsp;</a>
+		  <a href="javascript:addToCart(5495)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+		  
+		</div>
+		<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+		  <a href="goods.php?id=5496" target="_blank"><img src="images/201310/thumb_img/5496_thumb_G_1381704945133.jpg" alt="甘源牌蟹黄味蚕豆1袋14g" class="goodsimg"></a><br>
+		  <p><a href="goods.php?id=5496" target="_blank" title="甘源牌蟹黄味蚕豆1袋14g">甘源牌蟹黄味蚕豆1袋14g</a></p>
+		  <font class="market_s">￥0.55</font>
+		  <font class="shop_s">￥0.50</font><br>
+		  <a href="javascript:collect(5496);" class="f7">&nbsp;收藏夹&nbsp;</a>
+		  <a href="javascript:addToCart(5496)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+		  
+		</div>
+		<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+		  <a href="goods.php?id=5497" target="_blank"><img src="images/201310/thumb_img/5497_thumb_G_1381704925324.jpg" alt="甘源牌美国青豌豆1袋10g" class="goodsimg"></a><br>
+		  <p><a href="goods.php?id=5497" target="_blank" title="甘源牌美国青豌豆1袋10g">甘源牌美国青豌豆1袋10g</a></p>
+		  <font class="market_s">￥0.55</font>
+		  <font class="shop_s">￥0.50</font><br>
+		  <a href="javascript:collect(5497);" class="f7">&nbsp;收藏夹&nbsp;</a>
+		  <a href="javascript:addToCart(5497)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+		  
+		</div>
+		<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+		  <a href="goods.php?id=5498" target="_blank"><img src="images/201310/thumb_img/5498_thumb_G_1381704909441.jpg" alt="菲尚喜营养麦片巧克力10g" class="goodsimg"></a><br>
+		  <p><a href="goods.php?id=5498" target="_blank" title="菲尚喜营养麦片巧克力10g">菲尚喜营养麦片巧克力10g</a></p>
+		  <font class="market_s">￥0.55</font>
+		  <font class="shop_s">￥0.50</font><br>
+		  <a href="javascript:collect(5498);" class="f7">&nbsp;收藏夹&nbsp;</a>
+		  <a href="javascript:addToCart(5498)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+		  
+		</div>
+		<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+		  <a href="goods.php?id=5568" target="_blank"><img src="images/201310/thumb_img/5568_thumb_G_1382916164285.jpg" alt="马来西亚特鲜炼奶起士饼22g" class="goodsimg"></a><br>
+		  <p><a href="goods.php?id=5568" target="_blank" title="马来西亚特鲜炼奶起士饼22g">马来西亚特鲜炼奶起士饼22g</a></p>
+		  <font class="market_s">￥0.55</font>
+		  <font class="shop_s">￥0.50</font><br>
+		  <a href="javascript:collect(5568);" class="f7">&nbsp;收藏夹&nbsp;</a>
+		  <a href="javascript:addToCart(5568)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+		  
+		</div>
+		<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+		  <a href="goods.php?id=5579" target="_blank"><img src="images/201310/thumb_img/5579_thumb_G_1382920509156.jpg" alt="甘源牌青豌豆蟹黄味1袋" class="goodsimg"></a><br>
+		  <p><a href="goods.php?id=5579" target="_blank" title="甘源牌青豌豆蟹黄味1袋">甘源牌青豌豆蟹黄味1袋</a></p>
+		  <font class="market_s">￥0.55</font>
+		  <font class="shop_s">￥0.50</font><br>
+		  <a href="javascript:collect(5579);" class="f7">&nbsp;收藏夹&nbsp;</a>
+		  <a href="javascript:addToCart(5579)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+		  
+		</div>
+		<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+		  <a href="goods.php?id=5580" target="_blank"><img src="images/201310/thumb_img/5580_thumb_G_1382920662717.jpg" alt="甘源牌青豌豆蒜香味1袋" class="goodsimg"></a><br>
+		  <p><a href="goods.php?id=5580" target="_blank" title="甘源牌青豌豆蒜香味1袋">甘源牌青豌豆蒜香味1袋</a></p>
+		  <font class="market_s">￥0.55</font>
+		  <font class="shop_s">￥0.50</font><br>
+		  <a href="javascript:collect(5580);" class="f7">&nbsp;收藏夹&nbsp;</a>
+		  <a href="javascript:addToCart(5580)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+		  
+		</div>
+		<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+		  <a href="goods.php?id=5500" target="_blank"><img src="images/201310/thumb_img/5500_thumb_G_1381704875343.jpg" alt="森度千叶脱水芝士味蛋糕1个10g" class="goodsimg"></a><br>
+		  <p><a href="goods.php?id=5500" target="_blank" title="森度千叶脱水芝士味蛋糕1个10g">森度千叶脱水芝士味蛋糕1个10g</a></p>
+		  <font class="market_s">￥1.10</font>
+		  <font class="shop_s">￥1.00</font><br>
+		  <a href="javascript:collect(5500);" class="f7">&nbsp;收藏夹&nbsp;</a>
+		  <a href="javascript:addToCart(5500)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+		  
+		</div>
+		<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+		  <a href="goods.php?id=5502" target="_blank"><img src="images/201310/thumb_img/5502_thumb_G_1381704836097.jpg" alt="苏微锅巴美式茄汁味1袋20g" class="goodsimg"></a><br>
+		  <p><a href="goods.php?id=5502" target="_blank" title="苏微锅巴美式茄汁味1袋20g">苏微锅巴美式茄汁味1袋20g</a></p>
+		  <font class="market_s">￥1.10</font>
+		  <font class="shop_s">￥1.00</font><br>
+		  <a href="javascript:collect(5502);" class="f7">&nbsp;收藏夹&nbsp;</a>
+		  <a href="javascript:addToCart(5502)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+		  
+		</div>
+		<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+		  <a href="goods.php?id=5566" target="_blank"><img src="images/201310/thumb_img/5566_thumb_G_1382907468225.jpg" alt="苏微锅巴日式牛排味1袋" class="goodsimg"></a><br>
+		  <p><a href="goods.php?id=5566" target="_blank" title="苏微锅巴日式牛排味1袋">苏微锅巴日式牛排味1袋</a></p>
+		  <font class="market_s">￥1.10</font>
+		  <font class="shop_s">￥1.00</font><br>
+		  <a href="javascript:collect(5566);" class="f7">&nbsp;收藏夹&nbsp;</a>
+		  <a href="javascript:addToCart(5566)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+		  
+		</div>
+		<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+		  <a href="goods.php?id=5570" target="_blank"><img src="images/201310/thumb_img/5570_thumb_G_1382916951909.jpg" alt="韩国进口海飘牌低盐海苔2g" class="goodsimg"></a><br>
+		  <p><a href="goods.php?id=5570" target="_blank" title="韩国进口海飘牌低盐海苔2g">韩国进口海飘牌低盐海苔2g</a></p>
+		  <font class="market_s">￥1.10</font>
+		  <font class="shop_s">￥1.00</font><br>
+		  <a href="javascript:collect(5570);" class="f7">&nbsp;收藏夹&nbsp;</a>
+		  <a href="javascript:addToCart(5570)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+		  
+		</div>
+		<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+		  <a href="goods.php?id=5572" target="_blank"><img src="images/201310/thumb_img/5572_thumb_G_1382917137407.jpg" alt="马来西亚进口彩马公主饼干25g" class="goodsimg"></a><br>
+		  <p><a href="goods.php?id=5572" target="_blank" title="马来西亚进口彩马公主饼干25g">马来西亚进口彩马公主饼干25g</a></p>
+		  <font class="market_s">￥1.10</font>
+		  <font class="shop_s">￥1.00</font><br>
+		  <a href="javascript:collect(5572);" class="f7">&nbsp;收藏夹&nbsp;</a>
+		  <a href="javascript:addToCart(5572)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+		  
+		</div>
+		<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+		  <a href="goods.php?id=5573" target="_blank"><img src="images/201310/thumb_img/5573_thumb_G_1382917217727.jpg" alt="台湾北田能量99棒— 10g" class="goodsimg"></a><br>
+		  <p><a href="goods.php?id=5573" target="_blank" title="台湾北田能量99棒— 10g">台湾北田能量99棒— 10g</a></p>
+		  <font class="market_s">￥1.10</font>
+		  <font class="shop_s">￥1.00</font><br>
+		  <a href="javascript:collect(5573);" class="f7">&nbsp;收藏夹&nbsp;</a>
+		  <a href="javascript:addToCart(5573)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+		  
+		</div>
+		<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+		  <a href="goods.php?id=5574" target="_blank"><img src="images/201310/thumb_img/5574_thumb_G_1382917316718.jpg" alt="马来西亚愤怒的小鸟棉花糖11g" class="goodsimg"></a><br>
+		  <p><a href="goods.php?id=5574" target="_blank" title="马来西亚愤怒的小鸟棉花糖11g">马来西亚愤怒的小鸟棉花糖11g</a></p>
+		  <font class="market_s">￥1.10</font>
+		  <font class="shop_s">￥1.00</font><br>
+		  <a href="javascript:collect(5574);" class="f7">&nbsp;收藏夹&nbsp;</a>
+		  <a href="javascript:addToCart(5574)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+		  
+		</div>
+		<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+		  <a href="goods.php?id=5576" target="_blank"><img src="images/201310/thumb_img/5576_thumb_G_1382917911939.jpg" alt="台湾素手浣花黑糖棒棒糖14g" class="goodsimg"></a><br>
+		  <p><a href="goods.php?id=5576" target="_blank" title="台湾素手浣花黑糖棒棒糖14g">台湾素手浣花黑糖棒棒糖14g</a></p>
+		  <font class="market_s">￥1.10</font>
+		  <font class="shop_s">￥1.00</font><br>
+		  <a href="javascript:collect(5576);" class="f7">&nbsp;收藏夹&nbsp;</a>
+		  <a href="javascript:addToCart(5576)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+		  
+		</div>
+		<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+		  <a href="goods.php?id=5581" target="_blank"><img src="images/201310/thumb_img/5581_thumb_G_1382920909969.jpg" alt="森度脱水蛋糕牛奶味1袋" class="goodsimg"></a><br>
+		  <p><a href="goods.php?id=5581" target="_blank" title="森度脱水蛋糕牛奶味1袋">森度脱水蛋糕牛奶味1袋</a></p>
+		  <font class="market_s">￥1.10</font>
+		  <font class="shop_s">￥1.00</font><br>
+		  <a href="javascript:collect(5581);" class="f7">&nbsp;收藏夹&nbsp;</a>
+		  <a href="javascript:addToCart(5581)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+		  
+		</div>
+		<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+		  <a href="goods.php?id=5543" target="_blank"><img src="images/201310/thumb_img/5543_thumb_G_1383069763173.png" alt="七宝一丁鸡汁伊面—— 60g" class="goodsimg"></a><br>
+		  <p><a href="goods.php?id=5543" target="_blank" title="七宝一丁鸡汁伊面—— 60g">七宝一丁鸡汁伊面—— 60g</a></p>
+		  <font class="market_s">￥2.00</font>
+		  <font class="shop_s">￥1.50</font><br>
+		  <a href="javascript:collect(5543);" class="f7">&nbsp;收藏夹&nbsp;</a>
+		  <a href="javascript:addToCart(5543)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+		  
+		</div>
+		<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+		  <a href="goods.php?id=5575" target="_blank"><img src="images/201310/thumb_img/5575_thumb_G_1382917396457.jpg" alt="姚太太笋丝青豆———41.6g" class="goodsimg"></a><br>
+		  <p><a href="goods.php?id=5575" target="_blank" title="姚太太笋丝青豆———41.6g">姚太太笋丝青豆———41.6g</a></p>
+		  <font class="market_s">￥1.65</font>
+		  <font class="shop_s">￥1.50</font><br>
+		  <a href="javascript:collect(5575);" class="f7">&nbsp;收藏夹&nbsp;</a>
+		  <a href="javascript:addToCart(5575)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+		  
+		</div>
+		<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+		  <a href="goods.php?id=873" target="_blank"><img src="images/201212/thumb_img/873_thumb_G_1355863814993.jpg" alt="徐福记迷你包沙琪玛(蛋黄)32g" class="goodsimg"></a><br>
+		  <p><a href="goods.php?id=873" target="_blank" title="徐福记迷你包沙琪玛(蛋黄)32g">徐福记迷你包沙琪玛(蛋黄)32g</a></p>
+		  <font class="market_s">￥1.76</font>
+		  <font class="shop_s">￥1.60</font><br>
+		  <a href="javascript:collect(873);" class="f7">&nbsp;收藏夹&nbsp;</a>
+		  <a href="javascript:addToCart(873)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+		  
+		</div>
+		<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+		  <a href="goods.php?id=874" target="_blank"><img src="images/201209/thumb_img/874_thumb_G_1348256997253.jpg" alt="徐福记迷你包沙琪玛(松软蛋酥)32g" class="goodsimg"></a><br>
+		  <p><a href="goods.php?id=874" target="_blank" title="徐福记迷你包沙琪玛(松软蛋酥)32g">徐福记迷你包沙琪玛(松软蛋酥)32g</a></p>
+		  <font class="market_s">￥1.76</font>
+		  <font class="shop_s">￥1.60</font><br>
+		  <a href="javascript:collect(874);" class="f7">&nbsp;收藏夹&nbsp;</a>
+		  <a href="javascript:addToCart(874)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+		  
+		</div>
+		<div class="goodsItem" style="margin-right:26px;margin-left:26px;margin-bottom:22px;">
+		  <a href="goods.php?id=8991" target="_blank"><img src="images/201401/thumb_img/8991_thumb_G_1390777642732.jpg" alt="绿箭柠檬草薄荷味口香糖13.5g5片装" class="goodsimg"></a><br>
+		  <p><a href="goods.php?id=8991" target="_blank" title="绿箭柠檬草薄荷味口香糖13.5g5片装">绿箭柠檬草薄荷味口香糖13.5g5片装</a></p>
+		  <font class="market_s">￥1.76</font>
+		  <font class="shop_s">￥1.60</font><br>
+		  <a href="javascript:collect(8991);" class="f7">&nbsp;收藏夹&nbsp;</a>
+		  <a href="javascript:addToCart(8991)" class="f8" id="addtocartbutton">&nbsp;&nbsp;购&nbsp;&nbsp;买&nbsp;&nbsp;</a> 
+		  
+		</div>
+	      </div>
+	    </div>
+	  </form>
+	  
+	</div>
+      </div>
+      <div class="blank5"></div>
+      <script type="Text/Javascript" language="JavaScript">
+	<!--
+	    function selectPage(sel)
+	    {
+	    sel.form.submit();
+	    }
+	    //-->
+      </script>
+      
+      <form name="selectPageForm" action="/category.php" method="get">
+	<div id="pager">
+	  总计 917 个记录，共 39 页。 <span> <a href="category.php?id=695&amp;price_min=0&amp;price_max=0&amp;page=1&amp;sort=shop_price&amp;order=ASC">第一页</a> <a href="category.php?id=695&amp;price_min=0&amp;price_max=0&amp;page=1&amp;sort=shop_price&amp;order=ASC">上一页</a> <a href="category.php?id=695&amp;price_min=0&amp;price_max=0&amp;page=2&amp;sort=shop_price&amp;order=ASC">下一页</a> <a href="category.php?id=695&amp;price_min=0&amp;price_max=0&amp;page=39&amp;sort=shop_price&amp;order=ASC">最末页</a> </span>
+	  <input type="hidden" name="category" value="695">
+	  <input type="hidden" name="keywords" value="">
+	  <input type="hidden" name="sort" value="shop_price">
+	  <input type="hidden" name="order" value="ASC">
+	  <input type="hidden" name="cat" value="695">
+	  <input type="hidden" name="brand" value="0">
+	  <input type="hidden" name="price_min" value="0">
+	  <input type="hidden" name="price_max" value="0">
+	  <input type="hidden" name="filter_attr" value="0">
+	  <input type="hidden" name="display" value="grid">
+	  <select name="page" id="page" onchange="selectPage(this)">
+	    <option value="1" selected="">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option><option value="33">33</option><option value="34">34</option><option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option>    </select>
+	</div>
+      </form>
+      <script type="Text/Javascript" language="JavaScript">
+	<!--
+	    function selectPage(sel)
+	    {
+	    sel.form.submit();
+	    }
+	    //-->
+      </script>
+    </div>  
+    
+  </div>
+  {% for item in items %}
+  <li> {{ item.name }} </li>
+  {% empty %}
+  {% endfor %}
+  {% include 'footer.html' %}
