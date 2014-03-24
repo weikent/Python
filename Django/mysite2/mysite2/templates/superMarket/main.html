@@ -7,7 +7,7 @@
 	<ul>
 
 	  {% for main in mainSort %}
-	  <li rel="ddsubmenuside1"><a href={{ main.linkURL }}>{{ main.name }} <img src={{ main.image }} class="rightarrowpointer" style="width: 12px; height: 16px;"></a></li>
+	  <li rel="ddsubmenuside1"><a href=subSort/{{ main.linkURL }}>{{ main.name }} <img src={{ main.image }} class="rightarrowpointer" style="width: 12px; height: 16px;"></a></li>
 	  {% empty %}
 	  {% endfor %}
 	</ul>

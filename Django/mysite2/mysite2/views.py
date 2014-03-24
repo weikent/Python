@@ -78,10 +78,11 @@ def subSort(request):
     mainSortItems = views.mainSort()
     subSortItems = views.subSort()
 
-    mainSortItem = mainSortItems[0]
+
     brand = views.brand()
     kind = views.kind()
 
+    currentMainSortItem = []
     item = []
 
     if 'sort' in request.GET:
@@ -89,8 +90,9 @@ def subSort(request):
         if not sort:
             return render_to_response("404.html")
         else:
+            currentMainSortItem = mainSortItems[int(sort) - 1]
             item = views.item(100)
-            return render_to_response("superMarket/subSort.html", {'title' : 'subSort', 'items' : item, 'mainSortItems' : mainSortItems, 'subSortItems' : subSortItems, 'mainSortItem' : mainSortItem})
+            return render_to_response("superMarket/subSort.html", {'title' : 'subSort', 'items' : item, 'mainSortItems' : mainSortItems, 'subSortItems' : subSortItems, 'currentMainSortItem' : currentMainSortItem})
 
     return render_to_response("superMarket/subSort.html", {'title' : 'subSort', 'items' : item})
 

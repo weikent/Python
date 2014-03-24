@@ -21,6 +21,12 @@ class SubSort(models.Model):
     name = models.CharField(max_length = 30)
     mainSort = models.ForeignKey(MainSort)
     sortby = models.IntegerField()
+    linkURL = models.CharField(max_length = 500, blank = True, null = True)
+    image = models.CharField(max_length = 500, blank = True, null = True)
+    onClick = models.CharField(max_length = 100, blank = True, null = True)
+    devId = models.CharField(max_length = 20, blank = True, null = True)
+    devClass = models.CharField(max_length = 20, blank = True, null = True)
+
     def __unicode__(self):
         """
         

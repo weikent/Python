@@ -11,7 +11,7 @@ class MainSortAdmin(admin.ModelAdmin):
 class SubSortAdmin(admin.ModelAdmin):
     """
     """
-    list_display = ('name', 'sortby', 'mainSort')
+    list_display = ('name', 'sortby', 'mainSort', 'linkURL', 'onClick', 'devId', 'devClass')
 
 class ImagePathAdmin(admin.ModelAdmin):
     """
