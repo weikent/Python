@@ -17,7 +17,9 @@ def changeName():
             newSubName = "00" + subName
         if len(subName) == 2:
             newSubName = "0" + subName
-
+        if len(subName) == 3:
+            newSubName = subName
+        
         
         
 
