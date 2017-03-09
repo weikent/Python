@@ -9,7 +9,6 @@ import re
 import platform
 
 
-
 fileType = ["html", "htm"]
 
     
@@ -45,7 +44,7 @@ def delFile(path):
 
 def changeInfo1(rootDir, folder):
 
-    print "--------------------------------------------------------------------------------"
+    print("--------------------------------------------------------------------------------")
     rootDir = rootDir + "/"
     rootPath = os.path.join(rootDir, folder)
     # print "1===" + rootPath
@@ -86,7 +85,7 @@ def changeInfo1(rootDir, folder):
 
         else:
             if path[-4 :] in fileType:
-                print "path = ", path
+                print( "path = ", path)
                 i = path.rfind("/") # 路径中 / 最后出现的位置     rfind 反向查找
                 
 
@@ -98,13 +97,13 @@ def changeInfo1(rootDir, folder):
 
 import getopt, sys
 def usage():
-    print '''
+    print('''
 NAME
     this file is used to make a index file of my org project.
 Usage
     python makeindex.py
     should use it in the same dir with the root of the [org_publish]
-'''[1:-1]
+'''[1:-1])
 
 if __name__ == '__main__':
 
@@ -116,35 +115,35 @@ if __name__ == '__main__':
         getopt.getopt
     except getopt.GetoptError as err:
         # print help information and exit:
-        print str(err) # will print something like "option -a not recognized"
+        print (str(err)) # will print something like "option -a not recognized"
         usage()
         sys.exit(2)
 
     file=""
 
-    print "opts is "
-    print opts
-    print args
-    if opts:
-        print "a"
-    else:
-        print "nb"
+    # print "opts is "
+    # print opts
+    # print args
+    # if opts:
+    #     print "a"
+    # else:
+    #     print "nb"
 
     if args:
         if args.len == 2:
             defaultFolder = args[1]
             defaultPath = args[0]
         else:
-            print "wrong args"
+            print ("wrong args")
             usage()
             sys.exit()
     else:
-        print "use default args"
+        print ("use default args")
 
 
     for o, a in opts:
-        print "o is" + o
-        print "a is" + a
+        # print "o is" + o
+        # print "a is" + a
         if o in ("-h", "--help"):
             usage()
             sys.exit()
@@ -154,7 +153,7 @@ if __name__ == '__main__':
             assert False, "unhandled option"
     
 
-    print "hello world";
+    # print "hello world";
 
 
     if os.path.isfile("./index.html"):

@@ -6,6 +6,9 @@
 import os
 import sys
 
+
+os.
+
 def changeName():
     print "aaa"
     rootPath = "/media/psf/Maxell/English/6.语法/"
