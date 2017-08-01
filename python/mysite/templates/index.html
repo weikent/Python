@@ -1,0 +1,274 @@
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+</head>
+<div style="height:8%">
+	  <!--<font size="2" color="grey">Note: Server URL contains API web service port(you can omit it if port is 80),</font><br> 
+	       <font size="2" color="grey">for example, api.i-sockets.com:100, 192.168.1.76:9999 or 192.168.1.76</font><br>
+	       Server URL&nbsp;<input id='serverip' type='text' value='192.168.1.76' />-->
+	  <input type="button" value="Search" onclick="refreshaction()"><!--<input type="button" value="Reduce" onclick="reduce()"> <input type="button" value="Test" onclick="testit()">-->
+	  <div id="serverinfo"></div>
+    <div id="searchresult"></div>
+</div>
+<div style="height:2%"></div>
+<div style="overflow-y:scroll;height:90%">
+
+    <table><tr><td style="width:10px;background-color:black"></td><td style="width:3px;"></td>
+        <td>
+            <div id="result"></div>
+        </td></tr></table>
+</div>
+<style>
+ .table{border:solid #CCC; border-width:1px 0px 0px 1px;}
+ .table tr td{border:solid #CCC; border-width:0px 1px 1px 0px; padding:3px;}
+</style>
+<script type="text/javascript" src="{% static "js/md5.js" %}"></script>
+<script type="text/javascript" src="{% static "js/dateformat.js" %}"></script>
+<script type="text/javascript" src="{% static "js/jquery-1.11.2.min.js" %}"></script>
+<script type="text/javascript" src="{% static "js/params.js" %}"></script>
+<script type="text/javascript" src="{% static "js/script.js" %}"></script>
+<script type="text/javascript" src="{% static "js/stack.js" %}"></script>
+<script type="text/javascript" src="{% static "js/logic.js" %}"></script>
+<script type="text/javascript" src="{% static "js/logiccontent.js" %}"></script>
+<script type="text/javascript" src="{% static "js/testisockets.js" %}"></script>
+<script type="text/javascript">
+
+ {% autoescape off %}
+ var devmap=JSON.parse('{{devmap}}');
+ {% endautoescape %}
+
+ /* var serverinfo_json=JSON.parse('<%- JSON.stringify(serverinfo)%>');*/
+ {% autoescape off %}
+ var serverinfo_json=JSON.parse('{{serverinfo}}');
+ {% endautoescape %}
+
+
+ var red=" style='background-color:red' ";
+ var purple=" style='background-color:#9F00E3' ";
+ var yellow=" style='background-color:yellow' ";
+ var green=" style='background-color:#5F5' ";
+ var blue=" style='background-color:#ACC5FF' ";
+ var gatewaycount=0;
+ var portcount=0;
+ var serverinfo="";
+ var param_map={};
+ var err_map={};
+ function swap(arr,i,j)
+ {
+	   var t=arr[i];
+	   arr[i]=arr[j];
+	   arr[j]=t;
+ }
+ function sortport(arr)
+ {
+	   var mainpart=[],subpart=[];
+	   for(var i=0;i<arr.length;i++)
+	       {
+		         var sp=arr[i].split("-");
+		         mainpart.push(parseInt(sp[0]));
+		         if(sp.length==2)subpart.push(parseInt(sp[1]));
+		         else subpart.push(0);
+	       }
+	   for(var i=0;i<arr.length;i++)
+	       {
+		         for(var j=i+1;j<arr.length;j++)
+		             {
+			               if(mainpart[i]>mainpart[j]||mainpart[i]==mainpart[j]&&subpart[i]>subpart[j])
+			                   {
+				                     swap(arr,i,j);
+				                     swap(mainpart,i,j);
+				                     swap(subpart,i,j);
+			                   }
+		             }
+	       }
+	   return arr;
+ }
+ function getip(devid)
+ {
+	   var vdata="";
+	   vdata=devid+" ";//+json.IP;
+	   document.getElementById(devid).innerHTML = vdata;
+	   $("#"+devid+"-td").empty();
+	   var senidlist=[];
+	   for(var senid in devmap[devid].senmap)
+	       {
+		         senidlist.push(senid);	
+	       }
+	   sortport(senidlist);
+	   var sencount=0;
+	   for(var i=0;i<senidlist.length;i++)
+	       {
+		         var senid=senidlist[i];
+		         $("#"+devid+"-td").append("<div id='"+devid+"\\"+senid+"'></div>");
+		         testdevidport(devid+"\\"+senid);
+		         sencount++;
+	       }
+	   portcount+=sencount;
+	   document.getElementById("searchresult").innerHTML=serverinfo+", found "+gatewaycount+" devices and "+portcount+" ports in all.";
+ }
+ function testdevidport(devidport)
+ {
+	   var devidport_sp=devidport.split("\\");
+	   var devid=devidport_sp[0];
+	   var port=devidport_sp[1];
+	   var json=devmap[devid].senmap[port];
+	   vdata="";
+	   if(json.result=='error')return;
+	   if((json.result=="success"||json.result=="circuit power off")&&json.list.length>0)
+	       {
+		         var dd=new Date();
+		         dd.setTime(json.sentime);
+		         var ddstr=dd.Format("yyyy-MM-dd hh:mm:ss");
+		         param_map={};
+		         var data=DataForAnalyze();
+		         for(var i=0;i<json.list.length;i++)
+		             {
+			               var cur=json.list[i];
+                     var sentype=parseInt(json.sensorType);
+                     var paramtype=parseInt(cur.paramType);
+			               if(params[sentype].hasOwnProperty(paramtype))
+			                   {
+				                     var curparam=params[sentype][paramtype];
+				                     param_map[curparam.name]={v:cur.paramValue,u:cur.paramUnit};
+				                     
+				                     if(curparam.datatype!=undefined)
+				                         {
+					                           var dataitem=data.getadditem(curparam.datatype);
+					                           dataitem.setByKey(curparam.key,cur.paramValue);
+				                         }
+			                   }
+		             }
+		         var logics=parseLogic(logicStr);
+		         var errlist=judgeLogic(logics,data);
+		         err_map={};
+		         for(var i=0;i<errlist.length;i++)
+		             {
+			               if(err_map[errlist[i].key]==undefined)
+			                   {
+				                     err_map[errlist[i].key]={};
+			                   }
+			               if(err_map[errlist[i].key][errlist[i].datatype]==undefined||err_map[errlist[i].key][errlist[i].datatype].ret>errlist[i].ret)
+			                   {
+				                     err_map[errlist[i].key][errlist[i].datatype]={"ret":errlist[i].ret,"value":errlist[i].value};
+			                   }
+		             }
+		         if(json.sensorType==5)
+		             {
+			               vdata+="<p>port "+port+" "+results(json.result)+" "+ddstr+"<br><table class=table><tr><td>voltage</td><td>current</td><td>power</td><td>q</td><td>consp</td><td>pf</td></tr>"
+				                   +"<tr><td>"+wv(q("voltage").v)+" "+wv(q("voltage").u)+"</td><td "+colors(errmap("current",1))+">"+wv(q("current").v)+" "+wv(q("current").u)+"</td><td "+colors(errmap("power",1))+">"+wv(q("power").v)+" "+wv(q("power").u)+wv(percent(errmap("power",1)))+"</td><td>"+wv(q("reactivepower").v)+" "+wv(q("reactivepower").u)+"</td><td>"+wv(q("consp").v)+" "+wv(q("consp").u)+"</td><td "+colors(errmap("pf",1))+">"+wv(q("pf").v)+" "+wv(q("pf").u)+wv(percent(errmap("pf",1)))+"</td></tr>"
+				                   +"</table></p>";
+		             }
+		         else if(json.sensorType==6)
+		             {
+			               vdata+="<p>port "+port+" "+results(json.result)+" "+ddstr+"<br><table><tr><td>frequency="+wv(q("freguency").v)+" "+wv(q("freguency").u)+"</td></tr></table>"
+				                   +"<table><tr><td>Vab="+wv(q("voltage_ab").v)+" "+wv(q("voltage_ab").u)+"</td><td>Vbc="+wv(q("voltage_bc").v)+" "+wv(q("voltage_bc").u)+"</td><td>Vca="+wv(q("voltage_ca").v)+" "+wv(q("voltage_ca").u)+"</td></tr></table>"
+				                   +"<table class=table><tr><td>category</td><td>voltage</td><td>current</td><td>power</td><td>q</td><td>consp</td><td>pf</td></tr>"
+				                   +"<tr><td>VectorSum</td><td>"+wv(q("voltage_n_vs").v)+" "+wv(q("voltage_n_vs").u)+"</td><td>"+wv(q("current_vs").v)+" "+wv(q("current_vs").u)+"</td><td></td><td></td><td></td><td></td></tr>"
+				                   +"<tr><td>Total</td><td></td><td></td><td>"+wv(q("power_total").v)+" "+wv(q("power_total").u)+"</td><td></td><td>"+wv(q("consp_total").v)+" "+wv(q("consp_total").u)+"</td><td "+colors(errmap("pf",5))+">"+wv(q("pf_total").v)+" "+wv(q("pf_total").u)+"</td></tr>"
+				                   +"<tr><td>A</td><td>"+wv(q("voltage_a").v)+" "+wv(q("voltage_a").u)+"</td><td "+colors(errmap("current",2))+">"+wv(q("current_a").v)+" "+wv(q("current_a").u)+"</td><td "+colors(errmap("power",2))+">"+wv(q("power_a").v)+" "+wv(q("power_a").u)+percent(errmap("power",2))+"</td><td>"+wv(q("reactivepower_a").v)+" "+wv(q("reactivepower_a").u)+"</td><td>"+wv(q("consp_a").v)+" "+wv(q("consp_a").u)+"</td><td "+colors(errmap("pf",2))+">"+wv(q("pf_a").v)+" "+wv(q("pf_a").u)+percent(errmap("pf",2))+"</td></tr>"
+				                   +"<tr><td>B</td><td>"+wv(q("voltage_b").v)+" "+wv(q("voltage_b").u)+"</td><td "+colors(errmap("current",3))+">"+wv(q("current_b").v)+" "+wv(q("current_b").u)+"</td><td "+colors(errmap("power",3))+">"+wv(q("power_b").v)+" "+wv(q("power_b").u)+percent(errmap("power",3))+"</td><td>"+wv(q("reactivepower_b").v)+" "+wv(q("reactivepower_b").u)+"</td><td>"+wv(q("consp_b").v)+" "+wv(q("consp_b").u)+"</td><td "+colors(errmap("pf",3))+">"+wv(q("pf_b").v)+" "+wv(q("pf_b").u)+percent(errmap("pf",3))+"</td></tr>"
+				                   +"<tr><td>C</td><td>"+wv(q("voltage_c").v)+" "+wv(q("voltage_c").u)+"</td><td "+colors(errmap("current",4))+">"+wv(q("current_c").v)+" "+wv(q("current_c").u)+"</td><td "+colors(errmap("power",4))+">"+wv(q("power_c").v)+" "+wv(q("power_c").u)+percent(errmap("power",4))+"</td><td>"+wv(q("reactivepower_c").v)+" "+wv(q("reactivepower_c").u)+"</td><td>"+wv(q("consp_c").v)+" "+wv(q("consp_c").u)+"</td><td "+colors(errmap("pf",4))+">"+wv(q("pf_c").v)+" "+wv(q("pf_c").u)+percent(errmap("pf",4))+"</td></tr>"
+				                   +"</table></p>";
+		             }
+		         else if(json.sensorType==7)
+		             {
+			               vdata+="<p>port "+port+" "+json.result+" "+ddstr+"<br><table class=table><tr><td>flow</td><td>temperature</td><td>pressure</td><td>accumulatedflow</td></tr>"
+				                   +"<tr><td>"+wv(q("flow").v)+" "+wv(q("flow").u)+"</td><td>"+wv(q("temperature").v)+" "+wv(q("temperature").u)+"</td><td>"+wv(q("pressure").v)+" "+wv(q("pressure").u)+"</td><td>"+wv(q("flow_accumulated").v)+" "+wv(q("flow_accumulated").u)+"</td></tr>"
+				                   +"</table></p>";
+		             }
+		         else if(json.sensorType==8)
+		             {
+			               vdata+="<p>port "+port+" "+json.result+" "+ddstr+"<br>"
+				                   +"<table><tr><td>speed="+wv(q("speed").v)+" "+wv(q("speed").u)+"</td><td>signalquality="+wv(q("signalquality").v)+" "+wv(q("signalquality").u)+"</td></tr></table>"
+				                   +"<table class=table><tr><td>categroy</td><td>flow</td><td>heatflux</td><td>temperature</td><td>signalstrength</td></tr>"
+				                   +"<tr><td>instantaneous</td><td>"+wv(q("flow").v)+" "+wv(q("flow").u)+"</td><td>"+wv(q("heatflux_instantaneous").v)+" "+wv(q("heatflux_instantaneous").u)+"</td><td></td><td></td></tr>"
+				                   +"<tr><td>accumulated</td><td>"+wv(q("flow_accumulated").v)+" "+wv(q("flow_accumulated").u)+"</td><td>"+wv(q("heatflux_positive_accumulated").v)+" "+wv(q("heatflux_positive_accumulated").u)+"</td><td></td><td></td></tr>"
+				                   +"<tr><td>inlet</td><td></td><td></td><td>"+wv(q("temperature_inlet").v)+" "+wv(q("temperature_inlet").u)+"</td><td>"+wv(q("signal_upstream").v)+" "+wv(q("signal_upstream").u)+"</td></tr>"
+				                   +"<tr><td>outlet</td><td></td><td></td><td>"+wv(q("temperature_outlet").v)+" "+wv(q("temperature_outlet").u)+"</td><td>"+wv(q("signal_downstream").v)+" "+wv(q("signal_downstream").u)+"</td></tr>"
+				                   +"</table></p>";
+		             }
+		         else if(json.sensorType==11)
+		             {
+			               vdata+="<p>port "+port+" "+json.result+" "+ddstr+"<br>"
+				                   +"<table><tr><td>temperature="+wv(q("temperature").v)+" "+wv(q("temperature").u)+"</td><td>humidity="+wv(q("humidity").v)+" "+wv(q("humidity").u)+"</td></tr></table>";
+		             }
+	       }
+	   else if(json.result=="meter power off")
+	       {
+		         vdata+="<p>port "+port+": "+results("Meter does not exist or is powered off or lost connection.")+"</p>";
+	       }
+	   else 
+	       {
+		         vdata+="<p>port "+port+": "+results(json.result)+"</p>";
+	       }
+	   document.getElementById(devid+"\\"+port).innerHTML = vdata;
+ }
+ function test0()
+ {
+	   var devcount=0;
+	   for(var devid in devmap)
+	       {
+		         devcount++;
+	       }
+	   if(devcount==0)
+	       {
+		         document.getElementById("result").innerHTML = "no data!";
+		         return;
+	       }
+	   var vdata="";
+	   for(var devid in devmap)
+	       {
+		         vdata+="<div id='"+devid+"x222'><div id='"+devid+"'>"+devid+"</div><input onclick='hide(&quot;"+devid+"&quot;)' value='Hide' type='button'><input onclick='show(&quot;"+devid+"&quot;)' value='Show' type='button'></div>"
+		               +"<table id='"+devid+"-table'><tr><td style='width:20px;'></td><td id='"+devid+"-td'></td></tr></table>";
+	       }
+	   document.getElementById("result").innerHTML=vdata;
+	   portcount=0;
+	   for(var devid in devmap)
+	       {
+		         getip(devid);
+	       }
+	   gatewaycount=devcount;
+	   document.getElementById("searchresult").innerHTML=serverinfo+", found "+gatewaycount+" devices and "+portcount+" ports in all.";
+ }
+ function getserverinfo()
+ {
+	   serverinfo="API version: "+serverinfo_json.version+", server port: "+serverinfo_json.port;
+ }
+ function refreshaction(){
+	   location.reload();
+ }
+ search();
+ function search()
+ {
+     {% autoescape off %}
+     devmap=JSON.parse('{{devmap}}');
+     {% endautoescape %}
+
+     /* var serverinfo_json=JSON.parse('<%- JSON.stringify(serverinfo)%>');*/
+     {% autoescape off %}
+     serverinfo_json=JSON.parse('{{serverinfo}}');
+     {% endautoescape %}
+
+	   /* devmap=JSON.parse('<%- JSON.stringify(devmap)%>');
+	      serverinfo_json=JSON.parse('<%- JSON.stringify(serverinfo)%>');*/
+	   document.getElementById("result").innerHTML="";
+	   getserverinfo();
+	   test0();
+	   /*
+	      $("#result").empty();
+	      for(var dev in devmap)
+	      {
+		    var senmap=devmap[dev].senmap;
+		    var vid="<div id='"+dev+"'>"+dev;
+		    for(var p in senmap)
+		    {
+			  vid+=" "+p;	
+		    }
+		    vid+="<div>";
+		    
+		    $("#result").append(vid);
+	      }
+	    */
+ }
+</script>
